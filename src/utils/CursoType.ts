@@ -1,4 +1,3 @@
-import type { ProfessorType } from "./ProfessorType"
 import type { TipoCursoType } from "./TipoCursoType"
 
 export type CursoType = {
@@ -11,8 +10,6 @@ export type CursoType = {
     destaque: boolean
     createdAt: Date
     updatedAt: Date
-    professorId: number
-    professor: ProfessorType
     tipoCursoId: number
     tipoCurso: TipoCursoType
 }

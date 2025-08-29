@@ -2,11 +2,13 @@ import { CardCursos } from "./components/CardCursos";
 import { InputPesquisa } from "./components/InputPesquisa";
 import type { CursoType } from "./utils/CursoType";
 import { useEffect, useState } from "react";
+import { useClienteStore } from "./context/clientecontext";
 
 const apiUrl = import.meta.env.VITE_API_URL
 
 export default function App() {
   const [cursos, setCursos] = useState<CursoType[]>([])
+  const { logaCliente } = useClienteStore()
 
   useEffect(() => {
     async function buscaDados() {
@@ -16,6 +18,16 @@ export default function App() {
       setCursos(dados)
     }
     buscaDados()
+
+    async function buscaCliente(id: string) {
+      const response = await fetch(`${apiUrl}/clientes/${id}`)
+      const dados = await response.json()
+      logaCliente(dados)
+    }
+    if (localStorage.getItem("clienteKey")) {
+      const idCliente = localStorage.getItem("clienteKey")
+      buscaCliente(idCliente as string)
+    }
   }, [])
 
   const listacursos = cursos.map( curso => (

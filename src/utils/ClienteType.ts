@@ -1,4 +1,4 @@
-export type ProfessorType = {
+export type ClienteType = {
     id: number
     nome: string
     email: string
