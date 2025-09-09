@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom"
-import { useClienteStore } from "../context/clientecontext"
+import { useClienteStore } from "../context/ClienteContext"
 
 export default function Titulo() {
     const { cliente, deslogaCliente } = useClienteStore()
@@ -38,8 +38,8 @@ export default function Titulo() {
                                     <span className="text-black">
                                         {cliente.nome}
                                     </span>&nbsp;&nbsp;
-                                    <Link to="/propostas" className="text-white font-bold bg-gray-600 hover:bg-gray-700 focus:ring-2 focus:outline-none focus:ring-gray-400 rounded-lg text-sm w-full sm:w-auto px-3 py-2 text-center dark:bg-gray-500 dark:hover:bg-gray-600 dark:focus:ring-gray-700">
-                                        Minhas Propostas
+                                    <Link to="/minhasDuvidas" className="text-white font-bold bg-gray-600 hover:bg-gray-700 focus:ring-2 focus:outline-none focus:ring-gray-400 rounded-lg text-sm w-full sm:w-auto px-3 py-2 text-center dark:bg-gray-500 dark:hover:bg-gray-600 dark:focus:ring-gray-700">
+                                        Minhas Duvidas
                                     </Link>&nbsp;&nbsp;
                                     <span className="cursor-pointer font-bold text-gray-600"
                                         onClick={clienteSair}>

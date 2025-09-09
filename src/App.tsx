@@ -2,7 +2,7 @@ import { CardCursos } from "./components/CardCursos";
 import { InputPesquisa } from "./components/InputPesquisa";
 import type { CursoType } from "./utils/CursoType";
 import { useEffect, useState } from "react";
-import { useClienteStore } from "./context/clientecontext";
+import { useClienteStore } from "./context/ClienteContext";
 
 const apiUrl = import.meta.env.VITE_API_URL
 
@@ -41,7 +41,7 @@ export default function App() {
         <h1 className="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-black">
           Cursos <span className="underline underline-offset-3 decoration-8 decoration-orange-400 dark:decoration-orange-800">em destaque</span>
         </h1>
-        <div className="flex gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
           {listacursos}
         </div>
       </div>
