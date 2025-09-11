@@ -21,7 +21,7 @@ export default function Duvidas() {
     // para retornar apenas a data do campo no banco de dados
     // 2024-10-10T22:46:27.227Z => 10/10/2024
     function dataDMA(data: string) {
-        if(data == null) {
+        if (data == null) {
             return "Data invalida"
         }
 
@@ -32,16 +32,16 @@ export default function Duvidas() {
     }
 
     const duvidasTable = duvidas.map(duvida => (
-        <tr key={duvida.id} className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-            <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+        <tr key={duvida.id} className="border-b bg-[#a8a8a8] border-gray-700">
+            <th scope="row" className="px-6 py-4 font-medium whitespace-nowrap text-[#313131]">
                 <p><b>{duvida.curso.titulo} {duvida.curso.tipoCurso.nome}</b></p>
                 <p className='mt-3'>Duração: {duvida.curso.cargaHoraria} -
                     R$: {Number(duvida.curso.preco).toLocaleString("pt-br", { minimumFractionDigits: 2 })}</p>
             </th>
             <td className="px-6 py-4">
-                <img src={duvida.curso.foto} className="fotoCurso" alt="Foto Curso" />
+                <img src={duvida.curso.foto} className="fotoCurso rounded-[0.5rem]" alt="Foto Curso" />
             </td>
-            <td className="px-6 py-4">
+            <td className="px-6 py-4 text-[#313131]">
                 <p><b>{duvida.descricao}</b></p>
                 <p><i>Enviado em: {dataDMA(duvida.created_At)}</i></p>
             </td>
@@ -58,37 +58,39 @@ export default function Duvidas() {
     ))
 
     return (
-        <section className="max-w-7xl mx-auto">
-            <h1 className="mb-6 mt-4 text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl lg:text-5xl dark:text-white">
-                Listagem de <span className="underline underline-offset-3 decoration-8 decoration-orange-400 dark:decoration-orange-600">Minhas Duvidas</span></h1>
+        <div className='h-[93.3vh] bg-[#10100F]'>
+            <section className="max-w-7xl mx-auto">
+                <h1 className="mb-6 pt-4 text-4xl font-bold leading-none tracking-tight text-gray-900 md:text-4xl lg:text-5xl dark:text-white">
+                    Listagem de Duvidas</h1>
 
-            {duvidas.length == 0 ?
-                <h2 className="mb-4 mt-10 text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl dark:text-white">
-                   &nbsp;&nbsp; Ah... Você ainda não fez nenhuma pergunta sobre nossos cursos. 🙄
-                </h2>
-                :
-                <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                    <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                        <tr>
-                            <th scope="col" className="px-6 py-3">
-                                Curso
-                            </th>
-                            <th scope="col" className="px-6 py-3">
-                                Foto
-                            </th>
-                            <th scope="col" className="px-6 py-3">
-                                Duvida
-                            </th>
-                            <th scope="col" className="px-6 py-3">
-                                Resposta
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {duvidasTable}
-                    </tbody>
-                </table>
-            }
-        </section>
+                {duvidas.length == 0 ?
+                    <h2 className="mb-4 mt-10 text-4xl font-bold leading-none tracking-tight text-gray-900 md:text-4xl dark:text-white">
+                        &nbsp;&nbsp; Ah... Você ainda não fez nenhuma pergunta sobre nossos cursos. 🙄
+                    </h2>
+                    :
+                    <table className="w-full text-sm text-left rtl:text-right">
+                        <thead className="text-[1rem] bg-[#c2c2c2] text-[#4f4f4f]">
+                            <tr>
+                                <th scope="col" className="px-6 py-3">
+                                    Curso
+                                </th>
+                                <th scope="col" className="px-6 py-3">
+                                    Foto
+                                </th>
+                                <th scope="col" className="px-6 py-3">
+                                    Duvida
+                                </th>
+                                <th scope="col" className="px-6 py-3">
+                                    Resposta
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {duvidasTable}
+                        </tbody>
+                    </table>
+                }
+            </section>
+        </div>
     )
 }

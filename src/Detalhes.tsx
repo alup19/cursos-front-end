@@ -30,7 +30,7 @@ export default function Detalhes() {
   }, [])
 
   async function enviaDuvida(data: Inputs) {
-    
+
     const response = await fetch(`${apiUrl}/duvidas`, {
       headers: {
         "Content-Type": "application/json"
@@ -52,22 +52,24 @@ export default function Detalhes() {
   }
 
   return (
-    <>
-      <section className="flex mt-6 mx-auto flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-5xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-        <img className="object-cover w-full rounded-t-lg h-96 md:h-2/4 md:w-2/4 md:rounded-none md:rounded-s-lg"
+    <div className="bg-[#10100F] pt-8 h-[93.3vh]">
+      <section className="flex mx-auto flex-col w-[40rem] items-start border p-5 border-gray-200 rounded-lg shadow md:max-w-5xl dark:border-gray-700 dark:bg-[#050504]">
+        <img className="object-cover rounded-t-lg rounded-[1rem]"
           src={curso?.foto} alt="Foto do Curso" />
-        <div className="flex flex-col justify-between p-4 leading-normal">
-          <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+        <div className="flex flex-col justify-between py-4 leading-normal">
+          <h5 className="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
             {curso?.titulo} - {curso?.tipoCurso.nome}
           </h5>
-          <h5 className="mb-2 text-xl tracking-tight text-gray-900 dark:text-white">
-            Duração: {curso?.cargaHoraria}
-          </h5>
-          <h5 className="mb-2 text-xl tracking-tight text-gray-900 dark:text-white">
-            Preço R$: {Number(curso?.preco)
-              .toLocaleString("pt-br", { minimumFractionDigits: 2 })}
-          </h5>
-          <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
+          <div>
+            <h5 className="text-[1.1rem] tracking-tight dark:text-[#ccc]">
+              Duração: {curso?.cargaHoraria}
+            </h5>
+            <h5 className="text-[1.1rem] tracking-tight dark:text-[#ccc]">
+              Preço R$: {Number(curso?.preco)
+                .toLocaleString("pt-br", { minimumFractionDigits: 2 })}
+            </h5>
+          </div>
+          <p className="my-3 font-normal text-gray-700 dark:text-gray-400">
             {curso?.descricao}
           </p>
           {cliente.id ?
@@ -81,7 +83,10 @@ export default function Detalhes() {
                   required
                   {...register("descricao")}>
                 </textarea>
-                <button type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Enviar Duvida</button>
+                <div className="flex flex-row gap-4">
+                  <button type="submit" className="text-white bg-green-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center bg-gradient-to-r from-[#247c3a] to-[#42e242]">Comprar Curso</button>
+                  <button type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Enviar Duvida</button>
+                </div>
               </form>
             </>
             :
@@ -91,6 +96,6 @@ export default function Detalhes() {
           }
         </div>
       </section>
-    </>
+    </div>
   )
 }

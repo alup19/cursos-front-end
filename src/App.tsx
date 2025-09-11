@@ -35,16 +35,16 @@ export default function App() {
   ))
 
   return (
-    <>
+    <div className="h-[100vh] bg-[#10100F]">
       <InputPesquisa setCursos={setCursos} />
       <div className="max-w-7xl mx-auto">
-        <h1 className="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-black">
-          Cursos <span className="underline underline-offset-3 decoration-8 decoration-orange-400 dark:decoration-orange-800">em destaque</span>
+        <h1 className="mb-4 text-4xl font-bold leading-none my-8 font-inter tracking-tight text-[#f1eef1] md:text-5xl lg:text-6xl" >
+          Cursos em destaque
         </h1>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 gap-y-12">
           {listacursos}
         </div>
       </div>
-    </>
+    </div>
   );
 }
