@@ -12,9 +12,8 @@ export default function App() {
 
   useEffect(() => {
     async function buscaDados() {
-      const response = await fetch(`${apiUrl}/cursos`)
+      const response = await fetch(`${apiUrl}/cursos/destaques`)
       const dados = await response.json()
-//      console.log(dados)
       setCursos(dados)
     }
     buscaDados()

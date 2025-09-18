@@ -4,7 +4,5 @@ export type ClienteType = {
     email: string
     senha: string
     telefone: string
-    endereco: string
-    // adminId: number
-    // admin: AdminType
+    cidade: string
 }

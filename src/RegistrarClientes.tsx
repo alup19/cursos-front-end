@@ -9,7 +9,7 @@ import { toast } from "sonner"
 type Inputs = {
     nome: string,
     email: string,
-    endereco: string,
+    cidade: string,
     telefone: string,
     senha: string,
     confirmaSenha: string
@@ -17,7 +17,7 @@ type Inputs = {
 
 const apiUrl = import.meta.env.VITE_API_URL
 
-export function RegistroClientes() {
+export function RegistrarClientes() {
     const { register, handleSubmit } = useForm<Inputs>()
 
     const navigate = useNavigate()
@@ -32,7 +32,7 @@ export function RegistroClientes() {
               fetch(`${apiUrl}/clientes`, {
                 headers: {"Content-Type": "application/json"},
                 method: "POST",
-                body: JSON.stringify({ nome: data.nome, email: data.email, endereco: data.endereco, telefone: data.telefone, senha: data.senha })
+                body: JSON.stringify({ nome: data.nome, email: data.email, cidade: data.cidade, telefone: data.telefone, senha: data.senha })
               })
             
             if (response.status == 201) {
@@ -40,6 +40,8 @@ export function RegistroClientes() {
 
                 navigate("/login")
             } else {
+                console.log(response.statusText);
+                
                 toast.error("Erro... Não foi possivel criar sua conta")
             }
         }
@@ -63,7 +65,7 @@ export function RegistroClientes() {
                         <div className='flex flex-row gap-12'>
                             <div className='flex flex-col'>
                                 <label htmlFor="" className="text-[#756D6D] text-[0.9375rem]font-inter">Cidade</label>
-                                <input type="text" id="endereco" className="text-white px-2 w-[14.875rem] h-[2.25rem] bg-[#0F0F0E] border-[2px] border-[#292727] rounded-[0.56rem]" required {...register("endereco")} />
+                                <input type="text" id="cidade" className="text-white px-2 w-[14.875rem] h-[2.25rem] bg-[#0F0F0E] border-[2px] border-[#292727] rounded-[0.56rem]" required {...register("cidade")} />
                             </div>
                             <div className='flex flex-col'>
                                 <label htmlFor="" className="text-[#756D6D] text-[0.9375rem]font-inter">Celular</label>

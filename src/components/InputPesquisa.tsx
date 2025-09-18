@@ -16,7 +16,6 @@ export function InputPesquisa({ setCursos }: InputPesquisaProps) {
     const { register, handleSubmit, reset } = useForm<Inputs>()
 
     async function enviaPesquisa(data: Inputs) {
-        // alert(data.termo)
         if (data.termo.length < 2) {
             toast.error("Informe, no mínimo, 2 caracteres")
             return
@@ -24,12 +23,11 @@ export function InputPesquisa({ setCursos }: InputPesquisaProps) {
 
         const response = await fetch(`${apiUrl}/cursos/pesquisa/${data.termo}`)
         const dados = await response.json()
-        // console.log(dados)
         setCursos(dados)
     }
 
     async function mostraDestaques() {
-        const response = await fetch(`${apiUrl}/cursos`)
+        const response = await fetch(`${apiUrl}/cursos/destaques`)
         const dados = await response.json()
         reset({ termo: "" })
         setCursos(dados)
@@ -46,7 +44,7 @@ export function InputPesquisa({ setCursos }: InputPesquisaProps) {
                         </svg>
                     </div>
                     <input type="search" id="default-search" className="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:[#4f4d50] dark:border-gray-600 dark:placeholder-[#424040] dark:text-[#302d2d] dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        placeholder="Informe nome do curso" required 
+                        placeholder="Informe nome do curso, tipo ou valor máximo" required 
                         {...register('termo')} />
                     <button type="submit" className="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                         Pesquisar

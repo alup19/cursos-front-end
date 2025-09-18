@@ -18,8 +18,6 @@ export default function Duvidas() {
         buscaDados()
     }, [])
 
-    // para retornar apenas a data do campo no banco de dados
-    // 2024-10-10T22:46:27.227Z => 10/10/2024
     function dataDMA(data: string) {
         if (data == null) {
             return "Data invalida"

@@ -22,7 +22,6 @@ export default function Login() {
     const navigate = useNavigate()
 
     async function verificaLogin(data: Inputs) {
-        // alert(`${data.email} ${data.senha} ${data.manter}`)
         const response = await 
           fetch(`${apiUrl}/clientes/login`, {
             headers: {"Content-Type": "application/json"},
@@ -30,33 +29,24 @@ export default function Login() {
             body: JSON.stringify({ email: data.email, senha: data.senha })
           })
         
-        // console.log(response)
         if (response.status == 200) {
-            // toast.success("Ok!")            
             const dados = await response.json()
 
-            // "coloca" os dados do cliente no contexto
             logaCliente(dados)
             
-            // se o cliente indicou que quer se manter conectado
-            // salvamos os dados (id) dele em localStorage
             if (data.manter) {
                 localStorage.setItem("clienteKey", dados.id)
             } else {
-                // se indicou que não quer permanecer logado e tem
-                // uma chave (anteriormente) salva, remove-a
                 if (localStorage.getItem("clienteKey")) {
                     localStorage.removeItem("clienteKey")
                 }
             }
 
-            // carrega a página principal, após login do cliente
             navigate("/")
         } else {
             toast.error("Erro... Login ou senha incorretos")
         }
     }
-
 
     return (
             <>
