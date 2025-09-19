@@ -7,7 +7,7 @@ const apiUrl = import.meta.env.VITE_API_URL
 
 export default function Duvidas() {
     const [duvidas, setDuvidas] = useState<DuvidaType[]>([])
-    const { cliente } = useClienteStore()
+    const { cliente, logaCliente } = useClienteStore()
 
     useEffect(() => {
         async function buscaDados() {
@@ -16,7 +16,17 @@ export default function Duvidas() {
             setDuvidas(dados)
         }
         buscaDados()
-    }, [])
+        
+        async function buscaCliente(id: string) {
+            const response = await fetch(`${apiUrl}/clientes/${id}`)
+                const dados = await response.json()
+                logaCliente(dados)  
+            }
+            if (localStorage.getItem("clienteKey")) {
+                const idCliente = localStorage.getItem("clienteKey")
+                buscaCliente(idCliente as string)
+            }
+    }, [cliente.id])
 
     function dataDMA(data: string) {
         if (data == null) {
