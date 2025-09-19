@@ -1,4 +1,5 @@
 import type { TipoCursoType } from "./TipoCursoType"
+import type { ProfessorType } from "./ProfessorType"
 
 export type CursoType = {
     id: number
@@ -12,4 +13,6 @@ export type CursoType = {
     updatedAt: Date
     tipoCursoId: number
     tipoCurso: TipoCursoType
+    professorId: number
+    professor: ProfessorType
 }

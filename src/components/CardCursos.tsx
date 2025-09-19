@@ -3,14 +3,16 @@ import type { CursoType } from "../utils/CursoType"
 
 export function CardCursos({ data }: { data: CursoType }) {
     return (
-        <div className="flex flex-col p-4 max-w-sm rounded-lg gap-3 shadow-sm bg-[#171717] border-[#4f4d50] border-1">
-            <img src={data.foto} alt="Foto do Curso" className="rounded-[1rem]" />
+        <div className="flex flex-col p-4 my-4 max-w-sm rounded-lg gap-3 shadow-sm items-centerbg-[#171717] border-[#4f4d50] border-1">
+            <div className="flex flex-col items-center">
+            <img src={data.foto} alt="Foto do Curso" className="w-[340px] h-[130px] object-cover rounded-[1rem]" />
+            </div>
             <div className="flex flex-row items-center justify-between">
                 <h1 className="text-[#e3dada] text-[1.2rem] font-medium font-inter tracking-tight">{data.titulo}</h1>
                 <h2 className="text-white bg-gradient-to-r from-[#245A7C] to-[#42A4E2] text-center rounded-[0.6875rem] w-[6.8125rem] h-[1.75rem] text-[1rem] font-inter font-semibold leading-normal">{data.tipoCurso.nome}</h2>
             </div>
                 <p className=" text-[#e3dada]">
-                    Professor: <span className="font-bold text-[#fff]">Marcelo Dias</span>
+                    Professor: <span className="font-bold text-[#fff]">{data.professor.nome}</span>
                 </p>
             <div>
                 <p className="text-[#e3dada]">

@@ -1,5 +1,6 @@
 import { useEffect } from "react"
 import { useForm } from "react-hook-form"
+// import { Link } from 'react-router-dom'
 import { Toaster, toast } from 'sonner'
 import { useAdminStore } from "../context/AdminContext"
 
@@ -38,29 +39,27 @@ export default function AdminLogin() {
   }
 
   return (
-    <main className="max-w-screen-xl flex flex-col items-center mx-auto p-6">
-      <img src="../../orvion_logo2.png" alt="Orvion" style={{ width: 240 }}
-        className="d-block" />
-      <div className="max-w-sm">
-        <h1 className="text-3xl font-bold my-8">Admin: Orvion Cursos</h1>
-        <form className="max-w-sm mx-auto"
-          onSubmit={handleSubmit(verificaLogin)} >
-          <div className="mb-5">
-            <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">E-mail:</label>
-            <input type="email" id="email" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              {...register("email")}
-              required />
-          </div>
-          <div className="mb-5">
-            <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Senha:</label>
-            <input type="password" id="password" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              {...register("senha")}
-              required />
-          </div>
-          <button type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Entrar</button>
-        </form>
-      </div>
+    <>
+      <section className="flex gap-7 flex-col justify-center items-center h-[100vh] bg-[#10100F]">
+        <img src="../../orvion_logo2.png" alt="Orvion" style={{ width: 240 }}
+          className="d-block" />
+        <h1 className="text-3xl font-inter xl text-[#c9c9c9]">Admin: Orvion Cursos</h1>
+        <div className="md:rounded-[0.63rem] md:border-[3px] md:w-[30rem] md:h-[25rem] border-[#1C1B1D] flex flex-col justify-center items-center">
+          <form action="" className="flex flex-col justify-center" onSubmit={handleSubmit(verificaLogin)} >
+            <label htmlFor="email" className="text-[#756D6D] text-[0.9375rem]font-inter">E-mail</label>
+            <input type="email" id="email" className="w-[14.875rem] px-2 h-[2.25rem] bg-[#0F0F0E] border-[2px] border-[#292727] rounded-[0.56rem] text-white"
+              required {...register("email")} />
+            <div className="flex justify-between pt-[2.38rem]">
+              <label htmlFor="password" className="text-[#756D6D] text-[0.9375rem] font-inter">Senha</label>
+            </div>
+            <input type="password" id="password" className="w-[14.875rem] px-2  h-[2.25rem] bg-[#0F0F0E] border-[2px] border-[#292727] rounded-[0.56rem] text-white" required {...register("senha")} />
+            <div className="flex items-start pt-2">
+            </div>
+            <input type="submit" value="Logar" className="text-white bg-gradient-to-r from-[#245A7C] to-[#42A4E2] rounded-[0.6875rem] w-[14.8125rem] h-[2.375rem] text-[1.25rem] font-inter font-bold leading-normal cursor-pointer mt-[1.31rem] mb-[1.31rem]" />
+          </form>
+        </div>
+      </section>
       <Toaster richColors position="top-right" />
-    </main>
+    </>
   );
 }

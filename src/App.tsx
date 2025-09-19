@@ -12,7 +12,7 @@ export default function App() {
 
   useEffect(() => {
     async function buscaDados() {
-      const response = await fetch(`${apiUrl}/cursos/destaques`)
+      const response = await fetch(`${apiUrl}/cursos`)
       const dados = await response.json()
       setCursos(dados)
     }
@@ -34,13 +34,13 @@ export default function App() {
   ))
 
   return (
-    <div className="h-[100vh] bg-[#10100F]">
+    <div className="min-h-[93.3vh] bg-[#10100F]">
       <InputPesquisa setCursos={setCursos} />
       <div className="max-w-7xl mx-auto">
         <h1 className="mb-4 text-4xl font-bold leading-none my-8 font-inter tracking-tight text-[#f1eef1] md:text-5xl lg:text-6xl" >
           Cursos em destaque
         </h1>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 gap-y-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 gap-y-5">
           {listacursos}
         </div>
       </div>
