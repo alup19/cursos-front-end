@@ -1,6 +1,6 @@
 import { FiUsers } from "react-icons/fi"
 import { Link } from "react-router-dom"
-import { useAdminStore } from "../../context/AdminContext"
+import { useAdminStore } from "../context/AdminContext"
 
 export function Titulo() {
   const { admin } = useAdminStore()

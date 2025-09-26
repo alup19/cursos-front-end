@@ -1,7 +1,7 @@
 import { Outlet } from 'react-router-dom'
 import { useEffect } from 'react'
 import { Toaster } from 'sonner'
-import { useAdminStore } from "../context/AdminContext"
+import { useAdminStore } from "./context/AdminContext"
 
 import { useNavigate } from "react-router-dom"
 

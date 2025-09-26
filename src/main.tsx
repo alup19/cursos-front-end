@@ -10,9 +10,11 @@ import { RegistrarClientes } from './RegistrarClientes.tsx'
 
 // ----------------- Rotas de Admin
 import AdminLayout from './admin/LayoutAdmin.tsx';
-import AdminLogin from './admin/AdminLogin.tsx';            
-import AdminDashboard from './admin/AdminDashBoard.tsx';    
-import AdminCursos from './admin/AdminCursos.tsx';     
+import AdminLogin from './admin/AdminLogin.tsx';     
+import AdminDashboard from './admin/AdminDashBoard.tsx';
+import AdminCursos from './admin/AdminCursos.tsx';
+import AdminNovoCurso from './admin/AdminNovoCurso.tsx'
+import AdminDuvidas from './admin/AdminDuvidas.tsx'
 
 import Layout from './Layout.tsx'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
@@ -28,6 +30,8 @@ const rotas = createBrowserRouter([
     children: [
       { index: true, element: <AdminDashboard /> },     // rota /admin
       { path: "cursos", element: <AdminCursos /> },     // rota /admin/cursos
+      { path: "cursos/novo", element: <AdminNovoCurso /> },
+      { path: "duvidas", element: <AdminDuvidas /> },
     ],
   },
   {

@@ -2,7 +2,7 @@ import { useEffect } from "react"
 import { useForm } from "react-hook-form"
 // import { Link } from 'react-router-dom'
 import { Toaster, toast } from 'sonner'
-import { useAdminStore } from "../context/AdminContext"
+import { useAdminStore } from "./context/AdminContext"
 
 import { useNavigate } from "react-router-dom"
 

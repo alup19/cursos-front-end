@@ -15,7 +15,7 @@ export default function Detalhes() {
   const params = useParams()
 
   const [curso, setCurso] = useState<CursoType>()
-  const { cliente } = useClienteStore()
+  const { cliente, logaCliente } = useClienteStore()
 
   const { register, handleSubmit, reset } = useForm<Inputs>()
 
@@ -23,10 +23,19 @@ export default function Detalhes() {
     async function buscaDados() {
       const response = await fetch(`${apiUrl}/cursos/${params.cursoId}`)
       const dados = await response.json()
-      // console.log(dados)
       setCurso(dados)
     }
     buscaDados()
+
+    async function buscaCliente(id: string) {
+      const response = await fetch(`${apiUrl}/clientes/${id}`)
+        const dados = await response.json()
+                logaCliente(dados)  
+            }
+            if (localStorage.getItem("clienteKey")) {
+                const idCliente = localStorage.getItem("clienteKey")
+                buscaCliente(idCliente as string)
+            }
   }, [])
 
   async function enviaDuvida(data: Inputs) {
@@ -76,7 +85,7 @@ export default function Detalhes() {
             <>
               <h3 className="text-xl font-bold tracking-tight text-gray-900 dark:text-white">
                 🙂Você pode tirar duvidas abaixo ou comprar o Curso!</h3>
-              <form onSubmit={handleSubmit(enviaDuvida)}>
+              <form>
                 <input type="text" className="mb-2 mt-4 bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" value={`${cliente.nome} (${cliente.email})`} disabled readOnly />
                 <textarea id="message" className="mb-2 block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   placeholder="Descreva a sua duvida"
@@ -85,7 +94,7 @@ export default function Detalhes() {
                 </textarea>
                 <div className="flex flex-row gap-4">
                   <button type="submit" className="text-white bg-green-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center bg-gradient-to-r from-[#247c3a] to-[#42e242]">Comprar Curso</button>
-                  <button type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Enviar Duvida</button>
+                  <button type="submit" onClick={handleSubmit(enviaDuvida)} className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Enviar Duvida</button>
                 </div>
               </form>
             </>
