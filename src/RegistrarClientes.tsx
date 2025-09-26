@@ -48,7 +48,7 @@ export function RegistrarClientes() {
 
     return (
         <>
-            <section className="flex justify-center items-center h-[93.3vh] w-[100vw] bg-[#10100F]">
+            <section className="flex justify-center items-center h-[93.1vh] w-[100vw] bg-[#10100F]">
                 <div className="md:rounded-[0.63rem] md:border-[3px] md:w-[40.0625rem] md:h-[30.375rem] border-[#1C1B1D] p-8 flex flex-col justify-center items-center">
                     <Link to={"/"}><img src="./logo.png" alt="" /></Link>
                     <form action="" className="flex flex-col gap-8 items-center">

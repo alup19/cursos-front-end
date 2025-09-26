@@ -49,7 +49,7 @@ export default function Login() {
 
     return (
         <>
-            <section className="flex justify-center items-center h-[93.3vh] bg-[#10100F]">
+            <section className="flex justify-center items-center h-[93.1vh] bg-[#10100F]">
                 <div className="md:rounded-[0.63rem] md:border-[3px] md:w-[30rem] md:h-[25rem] border-[#1C1B1D] flex flex-col justify-center items-center">
                     <form action="" className="flex flex-col justify-center" onSubmit={handleSubmit(verificaLogin)} >
                         <label htmlFor="email" className="text-[#756D6D] text-[0.9375rem]font-inter">E-mail</label>
