@@ -2,6 +2,7 @@ import { TiDeleteOutline } from "react-icons/ti"
 import { FaRegEdit  } from "react-icons/fa"
 import type { DuvidaType } from "../../utils/DuvidaType"
 import { useAdminStore } from "../context/AdminContext"
+import { toast } from "sonner"
 
 type listaDuvidaProps = {
   duvida: DuvidaType,
@@ -31,9 +32,9 @@ export default function ItemProposta({ duvida, duvidas, setDuvidas }: listaDuvid
       if (response.status == 200) {
         const duvidas2 = duvidas.filter(x => x.id != duvida.id)
         setDuvidas(duvidas2)
-        alert("Duvida excluída com sucesso")
+        toast.success("Duvida excluída com sucesso")
       } else {
-        alert("Erro... Duvida não foi excluída")
+        toast.error("Erro... Duvida não foi excluída")
       }
     }
   }

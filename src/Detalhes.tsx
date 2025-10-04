@@ -71,11 +71,14 @@ export default function Detalhes() {
           </h5>
           <div>
             <h5 className="text-[1.1rem] tracking-tight dark:text-[#ccc]">
-              Duração: {curso?.cargaHoraria}
+              Duração: {curso?.cargaHoraria} horas
             </h5>
             <h5 className="text-[1.1rem] tracking-tight dark:text-[#ccc]">
-              Preço R$: {Number(curso?.preco)
+              Preço: R$ {Number(curso?.preco)
                 .toLocaleString("pt-br", { minimumFractionDigits: 2 })}
+            </h5>
+            <h5 className="text-[1.1rem] tracking-tight dark:text-[#ccc]">
+              Professor: <span className="text-[1.1rem] tracking-tight dark:text-[#ccc] font-bold">{curso?.professor.nome}</span>
             </h5>
           </div>
           <p className="my-3 font-normal text-gray-700 dark:text-gray-400">
@@ -93,8 +96,8 @@ export default function Detalhes() {
                   {...register("descricao")}>
                 </textarea>
                 <div className="flex flex-row gap-4">
-                  <button type="submit" className="text-white bg-green-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center bg-gradient-to-r from-[#247c3a] to-[#42e242]">Comprar Curso</button>
-                  <button type="submit" onClick={handleSubmit(enviaDuvida)} className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Enviar Duvida</button>
+                  <button type="button" className="cursor-pointer text-white bg-green-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center bg-gradient-to-r from-[#247c3a] to-[#42e242]">Comprar Curso</button>
+                  <button type="submit" onClick={handleSubmit(enviaDuvida)} className="cursor-pointer text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Enviar Duvida</button>
                 </div>
               </form>
             </>

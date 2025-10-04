@@ -17,7 +17,7 @@ type Inputs = {
 
 const apiUrl = import.meta.env.VITE_API_URL
 
-export function RegistrarClientes() {
+export default function CadClientes() {
     const { register, handleSubmit } = useForm<Inputs>()
 
     const navigate = useNavigate()
@@ -54,32 +54,32 @@ export function RegistrarClientes() {
                     <form action="" className="flex flex-col gap-8 items-center">
                         <div className='flex flex-row gap-12'>
                             <div className='flex flex-col'>
-                                <label htmlFor="" className="text-[#756D6D] text-[0.9375rem]font-inter">Nome de Usuário</label>
+                                <label htmlFor="" className="text-[#756D6D] text-[0.9375rem] font-inter">Nome de Usuário</label>
                                 <input type="text" id="nome" className="text-white px-2 w-[14.875rem] h-[2.25rem] bg-[#0F0F0E] border-[2px] border-[#292727] rounded-[0.56rem]" required {...register("nome")} />
                             </div>
                             <div className='flex flex-col'>
-                                <label htmlFor="" className="text-[#756D6D] text-[0.9375rem]font-inter">Email</label>
+                                <label htmlFor="" className="text-[#756D6D] text-[0.9375rem] font-inter">Email</label>
                                 <input type="email" id="email" className="text-white px-2 w-[14.875rem] h-[2.25rem] bg-[#0F0F0E] border-[2px] border-[#292727] rounded-[0.56rem]" required {...register("email")} />
                             </div>
                         </div>
                         <div className='flex flex-row gap-12'>
                             <div className='flex flex-col'>
-                                <label htmlFor="" className="text-[#756D6D] text-[0.9375rem]font-inter">Cidade</label>
+                                <label htmlFor="" className="text-[#756D6D] text-[0.9375rem] font-inter">Cidade</label>
                                 <input type="text" id="cidade" className="text-white px-2 w-[14.875rem] h-[2.25rem] bg-[#0F0F0E] border-[2px] border-[#292727] rounded-[0.56rem]" required {...register("cidade")} />
                             </div>
                             <div className='flex flex-col'>
-                                <label htmlFor="" className="text-[#756D6D] text-[0.9375rem]font-inter">Celular</label>
+                                <label htmlFor="" className="text-[#756D6D] text-[0.9375rem] font-inter">Celular</label>
                                 <input type="tel" id="telefone" className="text-white px-2 w-[14.875rem] h-[2.25rem] bg-[#0F0F0E] border-[2px] border-[#292727] rounded-[0.56rem]" placeholder="(00) 0000-0000"
                                     pattern="[0-9]{2} [0-9]{8,9}" required {...register("telefone")} />
                             </div>
                         </div>
                         <div className='flex flex-row gap-12'>
                             <div className='flex flex-col'>
-                                <label htmlFor="" className="text-[#756D6D] text-[0.9375rem]font-inter">Senha</label>
+                                <label htmlFor="" className="text-[#756D6D] text-[0.9375rem] font-inter">Senha</label>
                                 <input type="password" id="senha" className="text-white px-2 w-[14.875rem] h-[2.25rem] bg-[#0F0F0E] border-[2px] border-[#292727] rounded-[0.56rem]" required {...register("senha")} />
                             </div>
                             <div className='flex flex-col'>
-                                <label htmlFor="" className="text-[#756D6D] text-[0.9375rem]font-inter">Confirmar Senha</label>
+                                <label htmlFor="" className="text-[#756D6D] text-[0.9375rem] font-inter">Confirmar Senha</label>
                                 <input type="password" id="confirmaSenha" className="text-white px-2 w-[14.875rem] h-[2.25rem] bg-[#0F0F0E] border-[2px] border-[#292727] rounded-[0.56rem]" required {...register("confirmaSenha")} />
                             </div>
                         </div>

@@ -3,6 +3,7 @@ import { FaRegStar } from "react-icons/fa"
 
 import type { CursoType } from "../../utils/CursoType"
 import { useAdminStore } from "../context/AdminContext"
+import { toast } from "sonner";
 
 interface listaCursoProps {
   curso: CursoType;
@@ -16,11 +17,11 @@ export default function ItemCurso({ curso, cursos, setCursos }: listaCursoProps)
   const { admin } = useAdminStore()
 
   async function excluirCurso() {
-    if (!admin || admin.nivel == 1) {
-      alert("Você não tem permissão para excluir cursos");
+    if (!admin || admin.nivel < 2) {
+      toast.error("Você não tem permissão para excluir cursos");
       return;
     }
-
+    
     if (confirm(`Confirma a exclusão`)) {
       const response = await fetch(`${apiUrl}/cursos/${curso.id}`,
         {
@@ -35,9 +36,9 @@ export default function ItemCurso({ curso, cursos, setCursos }: listaCursoProps)
       if (response.status == 200) {
         const cursos2 = cursos.filter(x => x.id != curso.id)
         setCursos(cursos2)
-        alert("Curso excluído com sucesso")
+        toast.success("Curso excluído com sucesso")
       } else {
-        alert("Erro... Curso não foi excluído")
+        toast.error("Não é possivel excluir esse curso")
       }
     }
   }
