@@ -75,7 +75,7 @@ export default function Login() {
                     </form>
                     <div className="flex flex-col items-center justify-center">
                         <p className="text-[#756D6D]">Ainda não tem uma conta?</p>
-                        <Link to={"/registro"}><a href="" className="text-[#9D9999] text-[0.9375rem] font-inter">Cadastre-se!</a></Link>
+                        <Link to={"/cadCliente"}><a href="" className="text-[#9D9999] text-[0.9375rem] font-inter">Cadastre-se!</a></Link>
                     </div>
                 </div>
             </section>
