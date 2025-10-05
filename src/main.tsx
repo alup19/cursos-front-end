@@ -22,6 +22,8 @@ import AdminNovoProfessor from './admin/AdminNovoProfessor.tsx'
 
 import Layout from './Layout.tsx'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import AdminNovoTipoCurso from './admin/AdminNovoTipoCurso.tsx'
+import AdminClientes from './admin/AdminClientes.tsx'
 
 const rotas = createBrowserRouter([
   {
@@ -40,6 +42,8 @@ const rotas = createBrowserRouter([
       { path: "cadAdmin/novo", element: <AdminNovoAdmin /> },
       { path: "professores", element: <AdminProfessores /> },
       { path: "professores/novo", element: <AdminNovoProfessor /> },
+      { path: "cursos/novoTipo", element: <AdminNovoTipoCurso /> },
+      { path: "clientes", element: <AdminClientes /> },
     ],
   },
   {

@@ -28,10 +28,16 @@ export default function AdminCursos() {
         <h1 className="mb-4 text-2xl font-bold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-4xl dark:text-white">
           Cadastro de Cursos
         </h1>
-        <Link to="/admin/cursos/novo" 
-          className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-bold rounded-lg text-md px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
-          Novo Curso
-        </Link>
+        <div className="flex gap-10">
+          <Link to="/admin/cursos/novoTipo"
+            className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-bold rounded-lg text-md px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+            Novo Tipo de Curso
+          </Link>
+          <Link to="/admin/cursos/novo"
+            className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-bold rounded-lg text-md px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+            Novo Curso
+          </Link>
+        </div>
       </div>
 
       <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
@@ -43,6 +49,9 @@ export default function AdminCursos() {
               </th>
               <th scope="col" className="px-6 py-3">
                 Nome do Curso
+              </th>
+              <th scope="col" className="px-6 py-3">
+                Professor
               </th>
               <th scope="col" className="px-6 py-3">
                 Tipo do Curso

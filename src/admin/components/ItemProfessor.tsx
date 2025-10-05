@@ -37,7 +37,7 @@ export default function ItemProfessor({ professor, professores, setProfessores }
         setProfessores(professores2)
         toast.success("Professor excluído com sucesso")
       } else {
-        toast.error("Erro... Professor não foi excluído")
+        toast.error("Erro... Professor não pode ser excluído")
       }
     }
   }

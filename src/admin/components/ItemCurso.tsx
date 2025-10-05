@@ -76,6 +76,9 @@ export default function ItemCurso({ curso, cursos, setCursos }: listaCursoProps)
         {curso.titulo}
       </td>
       <td className={`px-6 py-4 ${curso.destaque ? "font-extrabold" : ""}`}>
+        {curso.professor.nome}
+      </td>
+      <td className={`px-6 py-4 ${curso.destaque ? "font-extrabold" : ""}`}>
         {curso.tipoCurso.nome}
       </td>
       <td className={`px-6 py-4 ${curso.destaque ? "font-extrabold" : ""}`}>
