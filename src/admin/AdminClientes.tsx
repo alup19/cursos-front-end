@@ -24,13 +24,13 @@ export default function AdminClientes() {
   return (
     <div className='m-4 mt-24'>
       <div className='flex justify-between'>
-        <h1 className="mb-4 text-2xl font-bold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-4xl dark:text-white">
+        <h1 className="text-3xl mb-4 font-semibold font-inter text-[#fff]">
           Controle de Clientes
         </h1>
       </div>
       <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
-        <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-          <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+        <table className="w-full text-sm text-left rtl:text-right text-[#e5e5e5]">
+          <thead className="text-xs font-inter text-[#e5e5e5] uppercase bg-[#1a1a1a]">
             <tr>
               <th scope="col" className="px-6 py-3">
                 Nome do Cliente

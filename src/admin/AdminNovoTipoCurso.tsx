@@ -67,7 +67,7 @@ export default function AdminNovoTipoCurso() {
                                   className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-bold rounded-lg text-md px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
                                   Voltar
                         </Link>
-                        <h2 className="text-3xl mb-4 font-bold">Inclusão de Tipo de Curso</h2>
+                        <h2 className="mb-4 text-3xl font-semibold font-inter leading-none tracking-tight text-[#fff] md:text-3xl dark:text-white">Inclusão de Tipo de Curso</h2>
                     </div>
                     <form action="" onSubmit={handleSubmit(incluirTipoCurso)} className="flex flex-col gap-8 items-center my-24">
                         <div className='flex flex-col gap-8'>

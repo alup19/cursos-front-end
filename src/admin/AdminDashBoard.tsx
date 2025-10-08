@@ -15,6 +15,7 @@ type graficoClienteType = {
 }
 
 type geralDadosType = {
+  professores: number
   clientes: number
   cursos: number
   duvidas: number
@@ -59,27 +60,36 @@ export default function AdminDashboard() {
 
   return (
     <div className="container mt-24">
-      <h2 className="text-3xl mb-4 font-bold">Visão Geral do Sistema</h2>
+      <h2 className="text-3xl mb-4 font-semibold font-inter text-[#fff]">Visão Geral do Sistema</h2>
 
       <div className="w-2/3 flex justify-between mx-auto mb-5">
-        <div className="border-blue-600 border rounded p-6 w-1/3 me-3">
-          <span className="bg-blue-100 text-blue-800 text-xl text-center font-bold mx-auto block px-2.5 py-5 rounded dark:bg-blue-900 dark:text-blue-300">
-            {dados.clientes}</span>
-          <p className="font-bold mt-2 text-center">Nº Clientes</p>
+        <div className="border-[#333333] bg-[#1a1a1a] flex items-center justify-center flex-col border rounded h-[6.5rem] w-1/3 me-3">
+          <h3 className='font-inter pt-2 text-[1.1rem] font-semibold text-[#e5e5e5]'>Total de Professores:</h3>
+          <span className='font-inter text-[1.5rem] font-semibold text-[#e5e5e5]'>
+            {dados.professores}
+          </span>
         </div>
-        <div className="border-red-600 border rounded p-6 w-1/3 me-3">
-          <span className="bg-red-100 text-red-800 text-xl text-center font-bold mx-auto block px-2.5 py-5 rounded dark:bg-red-900 dark:text-red-300">
-            {dados.cursos}</span>
-          <p className="font-bold mt-2 text-center">Nº Cursos</p>
+        <div className="border-[#333333] bg-[#1a1a1a] flex items-center justify-center flex-col border rounded h-[6.5rem] w-1/3 me-3">
+          <h3 className='font-inter pt-2 text-[1.1rem] font-semibold text-[#e5e5e5]'>Total de Clientes:</h3>
+          <span className='font-inter text-[1.5rem] font-semibold text-[#e5e5e5]'>
+            {dados.clientes}
+          </span>
         </div>
-        <div className="border-green-600 border rounded p-6 w-1/3">
-          <span className="bg-green-100 text-green-800 text-xl text-center font-bold mx-auto block px-2.5 py-5 rounded dark:bg-green-900 dark:text-green-300">
-            {dados.duvidas}</span>
-          <p className="font-bold mt-2 text-center">Nº Duvidas</p>
+        <div className="border-[#333333] bg-[#1a1a1a] flex items-center justify-center flex-col border rounded h-[6.5rem] w-1/3 me-3">
+          <h3 className='font-inter pt-2 text-[1.1rem] font-semibold text-[#e5e5e5]'>Total de Cursos:</h3>
+          <span className='font-inter text-[1.5rem] font-semibold text-[#e5e5e5]'>
+            {dados.cursos}
+          </span>
+        </div>
+        <div className="border-[#333333] bg-[#1a1a1a] flex items-center justify-center flex-col border rounded h-[6.5rem] w-1/3 me-3">
+          <h3 className='font-inter pt-2 text-[1.1rem] font-semibold text-[#e5e5e5]'>Total de Dúvidas:</h3>
+          <span className='font-inter text-[1.5rem] font-semibold text-[#e5e5e5]'>
+            {dados.duvidas}
+          </span>
         </div>
       </div>
 
-      <div className="div-graficos">
+      <div className="flex items-center justify-center gap-3">
         <svg viewBox="30 55 400 400">
           <VictoryPie
             standalone={false}

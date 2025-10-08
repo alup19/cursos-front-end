@@ -68,12 +68,12 @@ export default function Duvidas() {
     return (
         <div className='h-[93.3vh] bg-[#10100F]'>
             <section className="max-w-7xl mx-auto">
-                <h1 className="mb-6 pt-4 text-4xl font-bold leading-none tracking-tight text-gray-900 md:text-4xl lg:text-5xl dark:text-white">
-                    Listagem de Duvidas</h1>
-
+                <h1 className="mb-6 pt-4 text-4xl font-bold leading-none tracking-tight text-white md:text-4xl lg:text-5xl dark:text-white">
+                    Listagem de Duvidas
+                </h1>
                 {duvidas.length == 0 ?
-                    <h2 className="mb-4 mt-10 text-4xl font-bold leading-none tracking-tight text-gray-900 md:text-4xl dark:text-white">
-                        &nbsp;&nbsp; Ah... Você ainda não fez nenhuma pergunta sobre nossos cursos. 🙄
+                    <h2 className="mb-4 mt-10 text-4xl font-bold leading-none tracking-tight text-white md:text-4xl dark:text-white">
+                        &nbsp;&nbsp; Ah... Você ainda não fez nenhuma pergunta sobre nossos cursos.
                     </h2>
                     :
                     <table className="w-full text-sm text-left rtl:text-right">

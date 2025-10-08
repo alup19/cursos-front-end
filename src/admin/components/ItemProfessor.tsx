@@ -43,7 +43,7 @@ export default function ItemProfessor({ professor, professores, setProfessores }
   }
 
   return (
-    <tr key={professor.id} className="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+    <tr key={professor.id} className="odd:bg-[#252525] font-inter text-white even:bg-[#333333] border-b border-gray-700">
       <td className="px-6 py-4">
         {professor.nome}
       </td>

@@ -24,13 +24,13 @@ export default function AdminLayout() {
   }
 
   return (
-    <>
+    <div className='bg-[#0a0a0c] min-h-screen'>
       <Titulo />
       <MenuLateral />
       <div className="p-4 sm:ml-64">
         <Outlet />
       </div>
       <Toaster richColors position="top-right" />
-    </>
+    </div>
   )
 }

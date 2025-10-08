@@ -21,64 +21,64 @@ export function MenuLateral() {
 
   return (
     <aside id="default-sidebar" className="fixed mt-24 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
-      <div className="h-full px-3 py-4 overflow-y-auto bg-blue-300 dark:bg-gray-800">
+      <div className="h-full px-3 py-4 overflow-y-auto bg-[#262626]">
         <ul className="space-y-2 font-medium">
           <li>
             <Link to="/admin" className="flex items-center p-2">
-              <span className="h-5 text-gray-600 text-2xl">
+              <span className="h-5 text-[#fff] text-2xl">
                 <BiSolidDashboard />
               </span>
-              <span className="ms-2 mt-1">Visão Geral</span>
+              <span className="ms-2 mt-1 font-inter text-[#e5e5d9]">Visão Geral</span>
             </Link>
           </li>
           <li>
             <Link to="/admin/cursos" className="flex items-center p-2">
-              <span className="h-5 text-gray-600 text-2xl">
+              <span className="h-5 text-[#fff] text-2xl">
                 <IoMdAddCircleOutline />
               </span>
-              <span className="ms-2 mt-1">Cadastro de Cursos</span>
+              <span className="ms-2 mt-1 font-inter text-[#e5e5d9]">Cadastro de Cursos</span>
             </Link>
           </li>
           <li>
             <Link to="/admin/professores" className="flex items-center p-2">
-              <span className="h-5 text-gray-600 text-2xl">
+              <span className="h-5 text-[#fff] text-2xl">
                 <IoMdAddCircleOutline />
               </span>
-              <span className="ms-2 mt-1">Cadastrar Professores</span>
+              <span className="ms-2 mt-1 font-inter text-[#e5e5d9]">Cadastrar Professores</span>
             </Link>
           </li>
           <li>
             <Link to="/admin/clientes" className="flex items-center p-2">
-              <span className="h-5 text-gray-600 text-2xl">
+              <span className="h-5 text-[#fff] text-2xl">
                 <FaUsers />
               </span>
-              <span className="ms-2 mt-1">Controle de Clientes</span>
+              <span className="ms-2 mt-1 font-inter text-[#e5e5d9]">Controle de Clientes</span>
             </Link>
           </li>
           <li>
             <Link to="/admin/duvidas" className="flex items-center p-2 cursor-pointer">
-              <span className="h-5 text-gray-600 text-2xl">
+              <span className="h-5 text-[#fff] text-2xl">
                 <AiOutlineMessage />
               </span>
-              <span className="ms-2 mt-1">Controle de Duvidas</span>
+              <span className="ms-2 mt-1 font-inter text-[#e5e5d9]">Controle de Duvidas</span>
             </Link>
           </li>
           {admin.nivel >= 3 &&
             <li>
               <Link to="/admin/cadAdmin" className="flex items-center p-2 cursor-pointer">
-                <span className="h-5 text-gray-600 text-2xl">
+                <span className="h-5 text-[#fff] text-2xl">
                   <FaRegUser />
                 </span>
-                <span className="ms-2 mt-1">Cadastro de Admins</span>
+                <span className="ms-2 mt-1 font-inter text-[#e5e5d9]">Cadastro de Admins</span>
               </Link>
             </li>
           }
           <li>
             <span className="flex items-center p-2 cursor-pointer">
-              <span className="h-5 text-gray-600 text-2xl">
+              <span className="h-5 text-[#fff] text-2xl">
                 <IoExitOutline />
               </span>
-              <span className="ms-2 mt-1" onClick={adminSair}>Sair do Sistema</span>
+              <span className="ms-2 mt-1 font-inter text-[#e5e5d9]" onClick={adminSair}>Sair do Sistema</span>
             </span>
           </li>
         </ul>

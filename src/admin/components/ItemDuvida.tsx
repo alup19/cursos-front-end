@@ -69,10 +69,10 @@ export default function ItemProposta({ duvida, duvidas, setDuvidas }: listaDuvid
   }
 
   return (
-    <tr key={duvida.id} className="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-      <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-        <img src={duvida.curso.foto} alt="Foto do Curso"
-          style={{ width: 200 }} />
+    <tr key={duvida.id} className="odd:bg-[#252525] font-inter text-white even:bg-[#333333] border-b border-gray-700">
+      <th scope="row" className="px-6 py-4 font-inter whitespace-nowrap text-white">
+        <img src={duvida.curso.foto} className="rounded-[0.5rem]" alt="Foto do Curso"
+          style={{ width: 200, height: 100 }} />
       </th>
       <td className={"px-6 py-4"}>
         {duvida.curso.titulo}

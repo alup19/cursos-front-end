@@ -67,32 +67,32 @@ export default function ItemCurso({ curso, cursos, setCursos }: listaCursoProps)
   }
 
   return (
-    <tr key={curso.id} className="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-      <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-        <img src={curso.foto} alt={`Foto do Curso`}
-          style={{ width: 200 }} />
+    <tr key={curso.id} className="odd:bg-[#252525] even:bg-[#333333] border-b border-gray-700">
+      <th scope="row" className="px-6 py-4 font-inter whitespace-nowrap text-white">
+        <img src={curso.foto} className="rounded-[0.5rem]" alt={`Foto do Curso`}
+          style={{ width: 200, height: 100 }} />
       </th>
-      <td className={`px-6 py-4 ${curso.destaque ? "font-extrabold" : ""}`}>
+      <td className={`px-6 py-4 ${curso.destaque ? "" : ""}`}>
         {curso.titulo}
       </td>
-      <td className={`px-6 py-4 ${curso.destaque ? "font-extrabold" : ""}`}>
+      <td className={`px-6 py-4 ${curso.destaque ? "" : ""}`}>
         {curso.professor.nome}
       </td>
-      <td className={`px-6 py-4 ${curso.destaque ? "font-extrabold" : ""}`}>
+      <td className={`px-6 py-4 ${curso.destaque ? "" : ""}`}>
         {curso.tipoCurso.nome}
       </td>
-      <td className={`px-6 py-4 ${curso.destaque ? "font-extrabold" : ""}`}>
+      <td className={`px-6 py-4 ${curso.destaque ? "" : ""}`}>
         {curso.cargaHoraria}
       </td>
-      <td className={`px-6 py-4 ${curso.destaque ? "font-extrabold" : ""}`}>
+      <td className={`px-6 py-4 ${curso.destaque ? "" : ""}`}>
         {Number(curso.preco).toLocaleString("pt-br", { minimumFractionDigits: 2 })}
       </td>
-      <td className="px-6 py-4">
-        <TiDeleteOutline className="text-3xl text-red-600 inline-block cursor-pointer" title="Excluir"
+      <div className="px-6 py-9 flex items-center">
+        <TiDeleteOutline className="text-3xl text-red-600 w-[2rem] inline-block cursor-pointer" title="Excluir"
           onClick={excluirCurso} />&nbsp;
-        <FaRegStar className="text-3xl text-yellow-600 inline-block cursor-pointer" title="Destacar"
+        <FaRegStar className="text-3xl text-yellow-600 w-[1.6rem] inline-block cursor-pointer" title="Destacar"
           onClick={alterarDestaque} />
-      </td>
+      </div>
     </tr>
   )
 }
