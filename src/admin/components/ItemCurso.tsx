@@ -70,7 +70,7 @@ export default function ItemCurso({ curso, cursos, setCursos }: listaCursoProps)
     <tr key={curso.id} className="odd:bg-[#252525] even:bg-[#333333] border-b border-gray-700">
       <th scope="row" className="px-6 py-4 font-inter whitespace-nowrap text-white">
         <img src={curso.foto} className="rounded-[0.5rem]" alt={`Foto do Curso`}
-          style={{ width: 200, height: 100 }} />
+          style={{ width: 250, height: 100 }} />
       </th>
       <td className={`px-6 py-4 ${curso.destaque ? "" : ""}`}>
         {curso.titulo}

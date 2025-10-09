@@ -1,6 +1,6 @@
 import './AdminDashboard.css'
 import { useEffect, useState } from "react";
-import { VictoryPie, VictoryLabel, VictoryTheme } from "victory";
+import { PieChart } from '@mui/x-charts/PieChart';
 
 const apiUrl = import.meta.env.VITE_API_URL
 
@@ -51,16 +51,16 @@ export default function AdminDashboard() {
   }, [])
 
   const listaCursosTipo = cursoTipo.map(item => (
-    { x: item.tipoCurso, y: item.num }
+    { label: item.tipoCurso, value: item.num }
   ))
 
   const listaClientesCidade = clientesCidade.map(item => (
-    { x: item.cidade, y: item.num }
+    { label: item.cidade, value: item.num }
   ))
 
   return (
-    <div className="container mt-24">
-      <h2 className="text-3xl mb-4 font-semibold font-inter text-[#fff]">Visão Geral do Sistema</h2>
+    <div className="container mt-24 flex items-center justify-center flex-col">
+      <h2 className="text-3xl font-semibold font-inter text-[#fff] mb-10">Visão Geral do Sistema</h2>
 
       <div className="w-2/3 flex justify-between mx-auto mb-5">
         <div className="border-[#333333] bg-[#1a1a1a] flex items-center justify-center flex-col border rounded h-[6.5rem] w-1/3 me-3">
@@ -89,71 +89,31 @@ export default function AdminDashboard() {
         </div>
       </div>
 
-      <div className="flex items-center justify-center gap-3">
-        <svg viewBox="30 55 400 400">
-          <VictoryPie
-            standalone={false}
-            width={400}
+      <div className='flex justify-center items-center flex-row gap-60 mt-20'>
+        <div className='flex justify-center items-center flex-col'>
+          <h2 className='text-3xl font-semibold font-inter text-[#fff]'>Cursos por Categoria</h2>
+          <PieChart
+            className='text-[#fff]'
+            series={[{ data: listaCursosTipo }]}
+            width={350}
             height={400}
-            data={listaCursosTipo}
-            innerRadius={50}
-            labelRadius={80}
-            theme={VictoryTheme.clean}
-            style={{
-              labels: {
-                fontSize: 10,
-                fill: "#fff",
-                fontFamily: "Arial",
-                fontWeight: "bold"
-              }
+            slotProps={{
+              legend: { hidden: true } as any,
             }}
           />
-          <VictoryLabel
-            textAnchor="middle"
-            style={{
-              fontSize: 12,
-              fill: "#f00",
-              fontFamily: "Arial",
-              fontWeight: "bold"
-            }}
-            x={200}
-            y={200}
-            text={["Curso", "por Tipo Curso"]}
-          />
-        </svg>
-
-        <svg viewBox="30 55 400 400">
-          <VictoryPie
-            standalone={false}
-            width={400}
+        </div>
+        <div className='flex justify-center items-center flex-col'>
+          <h2 className='text-3xl font-semibold font-inter text-[#fff]'>Clientes por Cidade</h2>
+          <PieChart
+            className='text-[#fff]'
+            series={[{ data: listaClientesCidade }]}
+            width={350}
             height={400}
-            data={listaClientesCidade}
-            innerRadius={50}
-            labelRadius={80}
-            theme={VictoryTheme.clean}
-            style={{
-              labels: {
-                fontSize: 10,
-                fill: "#fff",
-                fontFamily: "Arial",
-                fontWeight: "bold"
-              }
+            slotProps={{
+              legend: { hidden: true } as any,
             }}
           />
-          <VictoryLabel
-            textAnchor="middle"
-            style={{
-              fontSize: 12,
-              fill: "#f00",
-              fontFamily: "Arial",
-              fontWeight: "bold"
-            }}
-            x={200}
-            y={200}
-            text={["Clientes", "por Cidade"]}
-          />
-        </svg>
-
+        </div>
       </div>
     </div>
   )

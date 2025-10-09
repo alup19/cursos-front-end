@@ -48,7 +48,7 @@ export default function CadClientes() {
 
     return (
         <>
-            <section className="flex justify-center items-center h-[93.1vh] w-[100vw] bg-[#10100F]">
+            <section className="flex justify-center items-center h-[93.3vh] w-[100vw] bg-[#10100F]">
                 <div className="md:rounded-[0.63rem] md:border-[3px] md:w-[40.0625rem] md:h-[30.375rem] border-[#1C1B1D] p-8 flex flex-col justify-center items-center">
                     <Link to={"/"}><img src="./logo.png" alt="" /></Link>
                     <form action="" className="flex flex-col gap-8 items-center">
@@ -84,7 +84,7 @@ export default function CadClientes() {
                             </div>
                         </div>
 
-                        <input type="submit" onClick={handleSubmit(registraCliente)} value="Registrar-se" className="text-white bg-gradient-to-r from-[#245A7C] to-[#42A4E2] rounded-[0.6875rem] w-[14.8125rem] h-[2.375rem] text-[1.25rem] font-inter font-bold leading-normal cursor-pointer mt-[1.31rem] mb-[1.31rem]" />
+                        <input type="submit" onClick={handleSubmit(registraCliente)} value="Registrar-se" className="text-white bg-gradient-to-r from-[#245A7C] to-[#42A4E2] rounded-[0.6875rem] w-[14.8125rem] h-[2.375rem] text-[1.25rem] font-inter font-semibold leading-normal cursor-pointer mt-[1.31rem] mb-[1.31rem]" />
                     </form>
                     <div className="flex flex-col items-center">
                         <p className="text-[#756D6D]">Já tem uma conta?</p>

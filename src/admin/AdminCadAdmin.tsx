@@ -25,7 +25,7 @@ export default function AdminCadAdmin() {
   return (
     <div className='m-4 mt-24'>
       <div className='flex justify-between'>
-        <h1 className="mb-4 text-3xl font-semibold font-inter leading-none tracking-tight text-[#fff] md:text-3xl lg:text-4xl dark:text-white">
+        <h1 className="mb-4 text-3xl font-semibold font-inter leading-none tracking-tight text-[#fff] md:text-3xl dark:text-white">
           Cadastro de Administradores do Sistema
         </h1>
         <Link to="/admin/cadAdmin/novo" 

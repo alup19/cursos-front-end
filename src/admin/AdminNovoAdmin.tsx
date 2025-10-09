@@ -62,7 +62,7 @@ export default function AdminNovoAdmin() {
 
     return (
         <div className="container mt-24">
-            <h2 className="text-3xl mb-4 font-bold">Cadastro de Admin</h2>
+            <h2 className="mb-4 text-3xl font-semibold font-inter leading-none tracking-tight text-[#fff] md:text-3xl dark:text-white">Cadastro de Admin</h2>
             <form action="" onSubmit={handleSubmit(CadAdmin)} className="flex flex-col gap-8 items-center">
                         <div className='flex flex-row gap-12'>
                             <div className='flex flex-col'>
