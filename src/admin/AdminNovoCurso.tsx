@@ -87,9 +87,9 @@ export default function AdminNovoCurso() {
         }
 
     return (
-        <div className="container mt-24">
-            <h2 className="mb-4 text-3xl font-semibold font-inter leading-none tracking-tight text-[#fff] md:text-3xl dark:text-white">Inclusão de Cursos</h2>
-            <form action="" className="flex flex-col gap-8 items-center">
+        <div className="container mt-24 flex flex-col justify-center items-center">
+            <h2 className="mb-4 text-3xl font-semibold font-inter leading-none tracking-tight text-[#fff] md:text-3xl">Inclusão de Cursos</h2>
+            <form action="" className="flex flex-col gap-6 items-center">
                         <div className='flex flex-row gap-12'>
                             <div className='flex flex-col'>
                                 <label htmlFor="" className="text-[#756D6D] text-[0.9375rem]font-inter">Nome de Curso</label>
@@ -140,7 +140,7 @@ export default function AdminNovoCurso() {
                             {...register("descricao")}/>
                         </div>
                         
-                        <input type="submit" onClick={handleSubmit(incluirCurso)} value="Registrar Curso" className="text-white bg-gradient-to-r from-[#245A7C] to-[#42A4E2] rounded-[0.6875rem] w-[14.8125rem] h-[2.375rem] text-[1.25rem] font-inter font-bold leading-normal cursor-pointer mt-[1.31rem] mb-[1.31rem]" />
+                        <input type="submit" onClick={handleSubmit(incluirCurso)} value="Registrar Curso" className="text-white bg-gradient-to-r from-[#245A7C] to-[#42A4E2] rounded-[0.6875rem] w-[16.8125rem] h-[2.375rem] text-[1.25rem] font-inter font-semibold leading-normal cursor-pointer mt-[1.31rem] mb-[1.31rem]" />
                     </form>
         </div>
     )

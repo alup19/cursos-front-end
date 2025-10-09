@@ -41,8 +41,7 @@ export default function AdminLogin() {
   return (
     <>
       <section className="flex gap-7 flex-col justify-center items-center h-[100vh] bg-[#10100F]">
-        <img src="../../orvion_logo2.png" alt="Orvion" style={{ width: 240 }}
-          className="d-block" />
+        <img src="../../orvion_logo2.png" alt="Orvion" className="d-block w-[10rem]" />
         <h1 className="text-3xl font-inter xl text-[#c9c9c9]">Admin: Orvion Cursos</h1>
         <div className="md:rounded-[0.63rem] md:border-[3px] md:w-[30rem] md:h-[25rem] border-[#1C1B1D] flex flex-col justify-center items-center">
           <form action="" className="flex flex-col justify-center" onSubmit={handleSubmit(verificaLogin)} >

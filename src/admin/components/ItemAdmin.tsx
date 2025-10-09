@@ -99,7 +99,7 @@ export default function ItemAdmin({ adminLinha, admins, setAdmins }: listaCarroP
   }
 
   return (
-    <tr key={adminLinha.id} className="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+    <tr key={adminLinha.id} className="odd:bg-[#252525] even:bg-[#333333] border-b border-gray-700 font-inter text-white font-medium">
       <td className={`px-6 py-4`}>
         {adminLinha.nome}
       </td>
