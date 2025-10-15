@@ -112,10 +112,10 @@ export default function AdminCursos() {
         </h1>
         <div className="flex gap-2">
           <Link to="/admin/cursos/novoTipo"
-            className="text-white font-interfocus:ring-4 focus:ring-blue-300 font-bold rounded-lg text-md px-5 py-2.5 me-2 mb-2 bg-blue-600 hover:bg-blue-700 focus:outline-none ">
+            className="flex items-center justify-center top-28 text-white bg-[#572566] rounded-[0.6875rem] w-[12.8125rem] h-[2.875rem] text-[1rem] font-inter font-bold leading-normal cursor-pointer hover:bg-[#a8459b] transition-colors ">
             Novo Tipo de Curso
           </Link>
-          <button className="text-white font-interfocus:ring-4 focus:ring-blue-300 font-bold rounded-lg text-md px-5 py-2.5 me-2 mb-2 bg-blue-600 hover:bg-blue-700 focus:outline-none cursor-pointer" onClick={() => setOpen(true)}>
+          <button className="flex items-center justify-center top-28 text-white bg-[#572566] rounded-[0.6875rem] w-[7.8125rem] h-[2.875rem] text-[1rem] font-inter font-bold leading-normal cursor-pointer hover:bg-[#a8459b] transition-colors" onClick={() => setOpen(true)}>
             Novo Curso
           </button>
         </div>
@@ -154,7 +154,7 @@ export default function AdminCursos() {
         </table>
       </div>
       <Modal open={open} onClose={() => setOpen(false)}>
-        <div className="container mt-24 flex flex-col justify-center items-center">
+        <div className="container flex flex-col justify-center items-center">
           <h2 className="mb-4 text-3xl font-semibold font-inter leading-none tracking-tight text-[#fff] md:text-3xl">Inclusão de Cursos</h2>
           <form action="" className="flex flex-col gap-6 items-center">
             <div className='flex flex-row gap-12'>
@@ -207,7 +207,7 @@ export default function AdminCursos() {
                 {...register("descricao")} />
             </div>
 
-            <input type="submit" onClick={handleSubmit(incluirCurso)} value="Registrar Curso" className="text-white bg-gradient-to-r from-[#245A7C] to-[#42A4E2] rounded-[0.6875rem] w-[16.8125rem] h-[2.375rem] text-[1.25rem] font-inter font-semibold leading-normal cursor-pointer mt-[1.31rem] mb-[1.31rem]" />
+            <input type="submit" onClick={handleSubmit(incluirCurso)} value="Registrar Curso" className="text-white bg-gradient-to-r from-[#245A7C] to-[#42A4E2] rounded-[0.6875rem] w-[16.8125rem] h-[2.375rem] text-[1.25rem] font-inter font-semibold leading-normal cursor-pointer " />
           </form>
         </div>
       </Modal>

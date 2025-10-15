@@ -75,7 +75,7 @@ export default function ItemCurso({ curso, cursos, setCursos }: listaCursoProps)
         <img src={curso.foto && curso.foto.trim() !== "" ? curso.foto : "/orvion_logo.png"} className="rounded-[0.5rem] object-contain" alt={`Foto do Curso`}
           style={{ width: 250, height: 100 }} />
       </th>
-      <td className={`px-6 py-4 ${curso.destaque ? "font-bold text-yellow-500" : "font-bold text-black"}`}>
+      <td className={`px-6 py-4 ${curso.destaque ? "font-bold text-yellow-500" : "font-bold text-white"}`}>
         {curso.titulo}
       </td>
       <td className={`px-6 py-4 ${curso.destaque ? "" : ""}`}>
@@ -90,19 +90,15 @@ export default function ItemCurso({ curso, cursos, setCursos }: listaCursoProps)
       <td className={`px-6 py-4 ${curso.destaque ? "" : ""}`}>
         {Number(curso.preco).toLocaleString("pt-br", { minimumFractionDigits: 2 })}
       </td>
-      <div className="px-6 py-9 flex items-center">
+      <td className="px-2 py-15 flex items-center">
         <TiDeleteOutline className="text-3xl text-red-600 w-[2rem] inline-block cursor-pointer" title="Excluir"
           onClick={() => setOpenExcluir(true)} />&nbsp;
         <FaRegStar className="text-3xl text-yellow-600 w-[1.6rem] inline-block cursor-pointer" title="Destacar"
           onClick={alterarDestaque} />
-      </div>
+      </td>
       <Modal open={openExcluir} onClose={() => setOpenExcluir(false)}>
-        <div className="container mt-24">
-          <div className="container mt-10 flex flex-col items-center">
-            <button
-              className="absolute top-3 right-3 p-1 rounded-lg text-gray-400 bg-white hover:bg-gray-100 hover:text-gray-600"
-            >
-            </button>
+        <div className="container">
+          <div className="container flex flex-col items-center">
 
             <h2 className="mb-6 text-2xl font-semibold text-white text-center">
               Confirmar Exclusão

@@ -1,4 +1,5 @@
 import { TiDeleteOutline } from "react-icons/ti"
+import { FaCheck } from 'react-icons/fa';
 import { FaRegEdit } from "react-icons/fa"
 import type { DuvidaType } from "../../utils/DuvidaType"
 import { useAdminStore } from "../context/AdminContext"
@@ -92,9 +93,9 @@ export default function ItemDuvida({ duvida, duvidas, setDuvidas }: listaDuvidaP
   }
 
   useEffect(() => {
-   if (openResponder) {
-    setTimeout(() => setFocus("resposta"), 100)
-  }
+    if (openResponder) {
+      setTimeout(() => setFocus("resposta"), 100)
+    }
   }, [openResponder])
 
   return (
@@ -120,11 +121,11 @@ export default function ItemDuvida({ duvida, duvidas, setDuvidas }: listaDuvidaP
       </td>
       <td className="px-6 py-4">
         {duvida.resposta ?
-          <>
+          <div className="flex items-center">
             <TiDeleteOutline className="text-3xl text-red-600 inline-block cursor-pointer" title="Excluir"
               onClick={() => setOpenExcluir(true)} />&nbsp;
-            <img src="/ok.png" alt="Ok" style={{ width: 60 }} />
-          </>
+            <FaCheck className="text-3xl text-green-500 inline-block w-[27px]" title="Excluir" />&nbsp;
+          </div>
           :
           <>
             <TiDeleteOutline className="text-3xl text-red-600 inline-block cursor-pointer" title="Excluir"
@@ -135,12 +136,8 @@ export default function ItemDuvida({ duvida, duvidas, setDuvidas }: listaDuvidaP
         }
       </td>
       <Modal open={openExcluir} onClose={() => setOpenExcluir(false)}>
-        <div className="container mt-24">
-          <div className="container mt-10 flex flex-col items-center">
-            <button
-              className="absolute top-3 right-3 p-1 rounded-lg text-gray-400 bg-white hover:bg-gray-100 hover:text-gray-600"
-            >
-            </button>
+        <div className="container">
+          <div className="container flex flex-col items-center">
 
             <h2 className="mb-6 text-2xl font-semibold text-white text-center">
               Confirmar Exclusão
@@ -169,11 +166,11 @@ export default function ItemDuvida({ duvida, duvidas, setDuvidas }: listaDuvidaP
         </div>
       </Modal>
       <Modal open={openResponder} onClose={() => setOpenResponder(false)}>
-        <div className="flex flex-col container mt-24">
+        <div className="flex flex-col container">
           <h2 className="mb-4 text-3xl font-semibold font-inter leading-none tracking-tight text-[#fff] md:text-3xl dark:text-white">Resposta para duvida de {duvida.cliente.nome}</h2>
           <div className="flex flex-col justify-center items-center">
             <form action="" onSubmit={handleSubmit(responderDuvida)} className="flex flex-col gap-8">
-              <div className='flex flex-col gap-8 justify-center items-center'>
+              <div className='flex flex-col gap-3 justify-center items-center'>
                 <div className='flex flex-col'>
                   <label htmlFor="" className="text-[#756D6D] text-[0.9375rem]font-inter">Escreva sua Resposta</label>
                   <textarea
@@ -182,15 +179,12 @@ export default function ItemDuvida({ duvida, duvidas, setDuvidas }: listaDuvidaP
                     required
                     {...register("resposta")} />
                 </div>
-                <input type="submit" value="Salvar Nivel" className="text-white bg-gradient-to-r from-[#245A7C] to-[#42A4E2] rounded-[0.6875rem] w-[14.8125rem] h-[2.375rem] text-[1.25rem] font-inter font-bold leading-normal cursor-pointer mt-[1.31rem] mb-[1.31rem]" />
+                <div className="flex flex-row items-center gap-8">
+                  <input type="submit" value="Responder" className="text-white bg-gradient-to-r from-[#245A7C] to-[#42A4E2] rounded-[0.6875rem] w-[13.8125rem] h-[2.375rem] text-[1.25rem] font-inter font-bold leading-normal cursor-pointer mt-[1.31rem] mb-[1.31rem]" />
+                  <button onClick={() => setOpenResponder(false)} className="text-white bg-[#292727] rounded-[0.6875rem] w-[13.8125rem] h-[2.375rem] text-[1.25rem] font-inter font-bold leading-normal hover:bg-[#3a3939] transition cursor-pointer">Cancelar</button>
+                </div>
               </div>
             </form>
-            <button
-              onClick={() => setOpenResponder(false)}
-              className="text-white bg-[#292727] rounded-[0.6875rem] w-[14.8125rem] h-[2.375rem] text-[1.25rem] font-inter font-bold leading-normal hover:bg-[#3a3939] transition cursor-pointer"
-            >
-              Cancelar
-            </button>
           </div>
         </div>
       </Modal>

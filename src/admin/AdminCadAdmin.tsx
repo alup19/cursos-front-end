@@ -29,14 +29,14 @@ export default function AdminCadAdmin() {
           Cadastro de Administradores do Sistema
         </h1>
         <Link to="/admin/cadAdmin/novo" 
-          className="text-white font-inter focus:ring-4 focus:ring-blue-300 font-bold rounded-lg text-md px-5 py-2.5 me-2 mb-2 bg-blue-600 hover:bg-blue-700 focus:outline-none">
+          className="flex items-center justify-center top-28 text-white bg-[#572566] rounded-[0.6875rem] w-[7.8125rem] h-[2.875rem] text-[1rem] font-inter font-bold leading-normal cursor-pointer hover:bg-[#a8459b] transition-colors">
           Novo Admin
         </Link>
       </div>
 
       <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
-        <table className="w-full text-sm text-left rtl:text-right text-[#e5e5e5]">
-          <thead className="text-xs font-inter text-[#e5e5e5] uppercase bg-[#1a1a1a]">
+        <table className="w-full text-sm text-left rtl:text-center text-[#e5e5e5]">
+          <thead className="text-xs w-[100%] font-inter text-[#e5e5e5] uppercase bg-[#1a1a1a]">
             <tr>
               <th scope="col" className="px-6 py-3">
                 Nome do Admin

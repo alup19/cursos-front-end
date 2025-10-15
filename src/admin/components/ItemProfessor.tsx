@@ -60,12 +60,8 @@ export default function ItemProfessor({ professor, professores, setProfessores }
           onClick={() => setOpenExcluir(true)} />&nbsp;
       </td>
       <Modal open={openExcluir} onClose={() => setOpenExcluir(false)}>
-        <div className="container mt-24">
-          <div className="container mt-10 flex flex-col items-center">
-            <button
-              className="absolute top-3 right-3 p-1 rounded-lg text-gray-400 bg-white hover:bg-gray-100 hover:text-gray-600"
-            >
-            </button>
+        <div className="container">
+          <div className="container flex flex-col items-center">
 
             <h2 className="mb-6 text-2xl font-semibold text-white text-center">
               Confirmar Exclusão

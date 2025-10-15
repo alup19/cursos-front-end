@@ -16,7 +16,7 @@ const apiUrl = import.meta.env.VITE_API_URL
 
 export default function ItemTipoCurso({ tipoCurso, tiposCursos, setTiposCursos }: listaTipoCursoProps) {
   const { admin } = useAdminStore()
-    const [openExcluir, setOpenExcluir] = useState(false)
+  const [openExcluir, setOpenExcluir] = useState(false)
 
   async function excluirTipoCurso() {
     if (!admin || admin.nivel < 2) {
@@ -46,7 +46,7 @@ export default function ItemTipoCurso({ tipoCurso, tiposCursos, setTiposCursos }
   }
 
   return (
-    <tr key={tipoCurso.id} className="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+    <tr key={tipoCurso.id} className="odd:bg-[#252525] text-white font-inter even:bg-[#333333] border-b border-gray-700">
       <td className="px-6 py-4">
         {tipoCurso.id}
       </td>
@@ -58,12 +58,8 @@ export default function ItemTipoCurso({ tipoCurso, tiposCursos, setTiposCursos }
           onClick={() => setOpenExcluir(true)} />&nbsp;
       </td>
       <Modal open={openExcluir} onClose={() => setOpenExcluir(false)}>
-        <div className="container mt-24">
-          <div className="container mt-10 flex flex-col items-center">
-            <button
-              className="absolute top-3 right-3 p-1 rounded-lg text-gray-400 bg-white hover:bg-gray-100 hover:text-gray-600"
-            >
-            </button>
+        <div className="container ">
+          <div className="container flex flex-col items-center">
 
             <h2 className="mb-6 text-2xl font-semibold text-white text-center">
               Confirmar Exclusão
