@@ -4,6 +4,8 @@ import { FaRegStar } from "react-icons/fa"
 import type { CursoType } from "../../utils/CursoType"
 import { useAdminStore } from "../context/AdminContext"
 import { toast } from "sonner";
+import Modal from "./ModalAdmin";
+import { useState } from "react";
 
 interface listaCursoProps {
   curso: CursoType;
@@ -15,15 +17,15 @@ const apiUrl = import.meta.env.VITE_API_URL
 
 export default function ItemCurso({ curso, cursos, setCursos }: listaCursoProps) {
   const { admin } = useAdminStore()
+  const [openExcluir, setOpenExcluir] = useState(false)  
 
   async function excluirCurso() {
     if (!admin || admin.nivel < 2) {
       toast.error("Você não tem permissão para excluir cursos");
       return;
     }
-    
-    if (confirm(`Confirma a exclusão`)) {
-      const response = await fetch(`${apiUrl}/cursos/${curso.id}`,
+
+    const response = await fetch(`${apiUrl}/cursos/${curso.id}`,
         {
           method: "DELETE",
           headers: {
@@ -36,12 +38,13 @@ export default function ItemCurso({ curso, cursos, setCursos }: listaCursoProps)
       if (response.status == 200) {
         const cursos2 = cursos.filter(x => x.id != curso.id)
         setCursos(cursos2)
+        setOpenExcluir(false)
         toast.success("Curso excluído com sucesso")
       } else {
+        setOpenExcluir(false)
         toast.error("Não é possivel excluir esse curso")
       }
     }
-  }
 
   async function alterarDestaque() {
 
@@ -69,10 +72,10 @@ export default function ItemCurso({ curso, cursos, setCursos }: listaCursoProps)
   return (
     <tr key={curso.id} className="odd:bg-[#252525] even:bg-[#333333] border-b border-gray-700">
       <th scope="row" className="px-6 py-4 font-inter whitespace-nowrap text-white">
-        <img src={curso.foto} className="rounded-[0.5rem]" alt={`Foto do Curso`}
+        <img src={curso.foto && curso.foto.trim() !== "" ? curso.foto : "/orvion_logo.png"} className="rounded-[0.5rem] object-contain" alt={`Foto do Curso`}
           style={{ width: 250, height: 100 }} />
       </th>
-      <td className={`px-6 py-4 ${curso.destaque ? "" : ""}`}>
+      <td className={`px-6 py-4 ${curso.destaque ? "font-bold text-yellow-500" : "font-bold text-black"}`}>
         {curso.titulo}
       </td>
       <td className={`px-6 py-4 ${curso.destaque ? "" : ""}`}>
@@ -89,10 +92,43 @@ export default function ItemCurso({ curso, cursos, setCursos }: listaCursoProps)
       </td>
       <div className="px-6 py-9 flex items-center">
         <TiDeleteOutline className="text-3xl text-red-600 w-[2rem] inline-block cursor-pointer" title="Excluir"
-          onClick={excluirCurso} />&nbsp;
+          onClick={() => setOpenExcluir(true)} />&nbsp;
         <FaRegStar className="text-3xl text-yellow-600 w-[1.6rem] inline-block cursor-pointer" title="Destacar"
           onClick={alterarDestaque} />
       </div>
+      <Modal open={openExcluir} onClose={() => setOpenExcluir(false)}>
+        <div className="container mt-24">
+          <div className="container mt-10 flex flex-col items-center">
+            <button
+              className="absolute top-3 right-3 p-1 rounded-lg text-gray-400 bg-white hover:bg-gray-100 hover:text-gray-600"
+            >
+            </button>
+
+            <h2 className="mb-6 text-2xl font-semibold text-white text-center">
+              Confirmar Exclusão
+            </h2>
+
+            <p className="text-[#bcbcbc] text-center mb-6">
+              Tem certeza que deseja excluir este Curso?
+            </p>
+
+            <div className="flex gap-4">
+              <button
+                onClick={() => setOpenExcluir(false)}
+                className="text-white bg-[#292727] rounded-md px-6 py-2 text-[1rem] hover:bg-[#3a3939] transition cursor-pointer"
+              >
+                Cancelar
+              </button>
+              <button
+                onClick={excluirCurso}
+                className="text-white bg-gradient-to-r from-[#8B1E1E] to-[#E34242] rounded-md px-6 py-2 text-[1rem] font-bold hover:opacity-90 transition cursor-pointer"
+              >
+                Confirmar
+              </button>
+            </div>
+          </div>
+        </div>
+      </Modal>
     </tr>
   )
 }

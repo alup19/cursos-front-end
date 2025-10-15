@@ -3,6 +3,8 @@ import { TiDeleteOutline } from "react-icons/ti"
 import type { ClienteType } from "../../utils/ClienteType";
 import { useAdminStore } from "../context/AdminContext"
 import { toast } from "sonner";
+import Modal from "./ModalAdmin";
+import { useState } from "react";
 
 interface listaClienteProps {
   cliente: ClienteType;
@@ -14,6 +16,7 @@ const apiUrl = import.meta.env.VITE_API_URL
 
 export default function ItemCliente({ cliente, clientes, setClientes }: listaClienteProps) {
   const { admin } = useAdminStore()
+  const [openExcluir, setOpenExcluir] = useState(false)
 
   async function excluirCliente() {
     if (!admin || admin.nivel < 4) {
@@ -21,24 +24,23 @@ export default function ItemCliente({ cliente, clientes, setClientes }: listaCli
       return;
     }
 
-    if (confirm(`Confirma a exclusão`)) {
-      const response = await fetch(`${apiUrl}/clientes/${cliente.id}`,
-        {
-          method: "DELETE",
-          headers: {
-            "Content-type": "application/json",
-            Authorization: `Bearer ${admin.token}`
-          },
+    const response = await fetch(`${apiUrl}/clientes/${cliente.id}`,
+      {
+        method: "DELETE",
+        headers: {
+          "Content-type": "application/json",
+          Authorization: `Bearer ${admin.token}`
         },
-      )
+      },
+    )
 
-      if (response.status == 200) {
-        const clientes2 = clientes.filter(x => x.id != cliente.id)
-        setClientes(clientes2)
-        toast.success("Cliente excluído com sucesso")
-      } else {
-        toast.error("Erro... Cliente não foi excluído")
-      }
+    if (response.status == 200) {
+      const clientes2 = clientes.filter(x => x.id != cliente.id)
+      setClientes(clientes2)
+      toast.success("Cliente excluído com sucesso")
+    } else {
+      setOpenExcluir(false)
+      toast.error("Erro... Cliente não foi excluído")
     }
   }
 
@@ -58,8 +60,41 @@ export default function ItemCliente({ cliente, clientes, setClientes }: listaCli
       </td>
       <td className="px-6 py-4">
         <TiDeleteOutline className="text-3xl text-red-600 inline-block cursor-pointer" title="Excluir"
-          onClick={excluirCliente} />&nbsp;
+          onClick={() => setOpenExcluir(true)} />&nbsp;
       </td>
+      <Modal open={openExcluir} onClose={() => setOpenExcluir(false)}>
+        <div className="container mt-24">
+          <div className="container mt-10 flex flex-col items-center">
+            <button
+              className="absolute top-3 right-3 p-1 rounded-lg text-gray-400 bg-white hover:bg-gray-100 hover:text-gray-600"
+            >
+            </button>
+
+            <h2 className="mb-6 text-2xl font-semibold text-white text-center">
+              Confirmar Exclusão
+            </h2>
+
+            <p className="text-[#bcbcbc] text-center mb-6">
+              Tem certeza que deseja excluir este Cliente?
+            </p>
+
+            <div className="flex gap-4">
+              <button
+                onClick={() => setOpenExcluir(false)}
+                className="text-white bg-[#292727] rounded-md px-6 py-2 text-[1rem] hover:bg-[#3a3939] transition cursor-pointer"
+              >
+                Cancelar
+              </button>
+              <button
+                onClick={excluirCliente}
+                className="text-white bg-gradient-to-r from-[#8B1E1E] to-[#E34242] rounded-md px-6 py-2 text-[1rem] font-bold hover:opacity-90 transition cursor-pointer"
+              >
+                Confirmar
+              </button>
+            </div>
+          </div>
+        </div>
+      </Modal>
     </tr>
   )
 }

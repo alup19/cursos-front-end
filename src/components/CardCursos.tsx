@@ -5,7 +5,7 @@ export function CardCursos({ data }: { data: CursoType }) {
     return (
         <div className="flex flex-col p-4 my-4 max-w-sm rounded-lg gap-3 shadow-sm items-centerbg-[#171717] border-[#4f4d50] border-1">
             <div className="flex flex-col items-center">
-            <img src={data.foto} alt="Foto do Curso" className="w-[340px] h-[130px] object-cover rounded-[1rem]" />
+            <img src={data.foto && data.foto.trim() !== "" ? data.foto : "/orvion_logo.png"} alt="Foto do Curso" className="w-[340px] h-[130px] object-contain rounded-[1rem]" />
             </div>
             <div className="flex flex-row items-center justify-between">
                 <h1 className="text-[#e3dada] text-[1.2rem] font-medium font-inter tracking-tight">{data.titulo}</h1>

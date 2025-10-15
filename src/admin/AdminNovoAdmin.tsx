@@ -70,14 +70,14 @@ export default function AdminNovoAdmin() {
                                 <input type="text" id="nome" className="text-white px-2 w-[14.875rem] h-[2.25rem] bg-[#0F0F0E] border-[2px] border-[#292727] rounded-[0.56rem]" required {...register("nome")} />
                             </div>
                             <div className='flex flex-col'>
-                                <label htmlFor="" className="text-[#756D6D] text-[0.9375rem] font-inter">Email</label>
-                                <input type="text" id="email" className="text-white px-2 w-[14.875rem] h-[2.25rem] bg-[#0F0F0E] border-[2px] border-[#292727] rounded-[0.56rem]" required {...register("email")} />
-                            </div>
-                            <div className='flex flex-col'>
                                 <label htmlFor="" className="text-[#756D6D] text-[0.9375rem] font-inter">Nivel de Permissão</label>
                                 <input type="number" id="nivel" className="text-white px-2 w-[14.875rem] h-[2.25rem] bg-[#0F0F0E] border-[2px] border-[#292727] rounded-[0.56rem]" required placeholder="1 - 5" {...register("nivel")} />
                             </div>
                         </div>
+                            <div className='flex flex-col'>
+                                <label htmlFor="" className="text-[#756D6D] text-[0.9375rem] font-inter">Email</label>
+                                <input type="text" id="email" className="text-white px-2 w-[33rem] h-[2.25rem] bg-[#0F0F0E] border-[2px] border-[#292727] rounded-[0.56rem]" required {...register("email")} />
+                            </div>
                         <div className='flex flex-row gap-12'>
                             <div className='flex flex-col'>
                                 <label htmlFor="" className="text-[#756D6D] text-[0.9375rem] font-inter">Senha</label>

@@ -1,18 +1,20 @@
 import { Link, useNavigate } from "react-router-dom"
 import { useClienteStore } from "../context/ClienteContext"
+import Modal from "../admin/components/ModalAdmin"
+import { useState } from "react"
 
 export default function Titulo() {
     const { cliente, deslogaCliente } = useClienteStore()
     const navigate = useNavigate()
+      const [openSair, setOpenSair] = useState(false)
 
     function clienteSair() {
-        if (confirm("Confirma saída do Sistema?")) {
-            deslogaCliente()
-            if (localStorage.getItem("clienteKey")) {
-                localStorage.removeItem("clienteKey")
-            }
-            navigate("/login")
+        deslogaCliente()
+        if (localStorage.getItem("clienteKey")) {
+            localStorage.removeItem("clienteKey")
         }
+        setOpenSair(false)
+        navigate("/login")
     }
 
     return (
@@ -39,7 +41,7 @@ export default function Titulo() {
                                         Minhas Duvidas
                                     </Link>&nbsp;&nbsp;
                                     <span className="cursor-pointer font-bold text-[#f1eef1]"
-                                        onClick={clienteSair}>
+                                        onClick={() => setOpenSair(true)}>
                                         Sair
                                     </span>
                                 </>
@@ -52,6 +54,32 @@ export default function Titulo() {
                     </ul>
                 </div>
             </div>
+            <Modal open={openSair} onClose={() => setOpenSair(false)}>
+                    <div className="container mt-24">
+                      <div className="container mt-10 flex flex-col items-center max w-[20rem]">
+                        <h2 className="mb-6 text-2xl font-semibold text-white text-center">
+                          Sair do Sistema
+                        </h2>
+                        <p className="text-[#bcbcbc] text-center mb-6">
+                          Tem certeza que deseja sair da sua conta? Você precisará fazer login novamente.
+                        </p>
+                        <div className="flex gap-4">
+                          <button
+                            onClick={() => setOpenSair(false)}
+                            className="text-white bg-[#292727] rounded-md px-6 py-2 text-[1rem] hover:bg-[#3a3939] transition cursor-pointer"
+                          >
+                            Cancelar
+                          </button>
+                          <button
+                            className="text-white bg-gradient-to-r from-[#8B1E1E] to-[#E34242] rounded-md px-6 py-2 text-[1rem] font-bold hover:opacity-90 transition cursor-pointer"
+                            onClick={clienteSair}
+                          >
+                            Sair
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </Modal>
         </nav>
     )
 }

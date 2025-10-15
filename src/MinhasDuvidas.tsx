@@ -47,7 +47,7 @@ export default function Duvidas() {
                     R$: {Number(duvida.curso.preco).toLocaleString("pt-br", { minimumFractionDigits: 2 })}</p>
             </th>
             <td className="px-6 py-4">
-                <img src={duvida.curso.foto} className="fotoCurso rounded-[0.5rem]" alt="Foto Curso" />
+                <img src={duvida.curso.foto && duvida.curso.foto.trim() !== "" ? duvida.curso.foto : "/orvion_logo.png"} className="fotoCurso rounded-[0.5rem]" alt="Foto Curso" />
             </td>
             <td className="px-6 py-4 text-[#313131]">
                 <p><b>{duvida.descricao}</b></p>

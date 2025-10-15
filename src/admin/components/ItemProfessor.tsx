@@ -3,6 +3,8 @@ import { TiDeleteOutline } from "react-icons/ti"
 import type { ProfessorType } from "../../utils/ProfessorType";
 import { useAdminStore } from "../context/AdminContext"
 import { toast } from "sonner";
+import Modal from "./ModalAdmin";
+import { useState } from "react";
 
 interface listaProfessorProps {
   professor: ProfessorType;
@@ -14,6 +16,7 @@ const apiUrl = import.meta.env.VITE_API_URL
 
 export default function ItemProfessor({ professor, professores, setProfessores }: listaProfessorProps) {
   const { admin } = useAdminStore()
+  const [openExcluir, setOpenExcluir] = useState(false)
 
   async function excluirProfessor() {
     if (!admin || admin.nivel < 3) {
@@ -21,24 +24,23 @@ export default function ItemProfessor({ professor, professores, setProfessores }
       return;
     }
 
-    if (confirm(`Confirma a exclusão`)) {
-      const response = await fetch(`${apiUrl}/professores/${professor.id}`,
-        {
-          method: "DELETE",
-          headers: {
-            "Content-type": "application/json",
-            Authorization: `Bearer ${admin.token}`
-          },
+    const response = await fetch(`${apiUrl}/professores/${professor.id}`,
+      {
+        method: "DELETE",
+        headers: {
+          "Content-type": "application/json",
+          Authorization: `Bearer ${admin.token}`
         },
-      )
+      },
+    )
 
-      if (response.status == 200) {
-        const professores2 = professores.filter(x => x.id != professor.id)
-        setProfessores(professores2)
-        toast.success("Professor excluído com sucesso")
-      } else {
-        toast.error("Erro... Professor não pode ser excluído")
-      }
+    if (response.status == 200) {
+      const professores2 = professores.filter(x => x.id != professor.id)
+      setProfessores(professores2)
+      toast.success("Professor excluído com sucesso")
+    } else {
+      setOpenExcluir(false)
+      toast.error("Erro... Professor não pode ser excluído")
     }
   }
 
@@ -55,8 +57,42 @@ export default function ItemProfessor({ professor, professores, setProfessores }
       </td>
       <td className="px-6 py-4">
         <TiDeleteOutline className="text-3xl text-red-600 inline-block cursor-pointer" title="Excluir"
-          onClick={excluirProfessor} />&nbsp;
+          onClick={() => setOpenExcluir(true)} />&nbsp;
       </td>
+      <Modal open={openExcluir} onClose={() => setOpenExcluir(false)}>
+        <div className="container mt-24">
+          <div className="container mt-10 flex flex-col items-center">
+            <button
+              className="absolute top-3 right-3 p-1 rounded-lg text-gray-400 bg-white hover:bg-gray-100 hover:text-gray-600"
+            >
+            </button>
+
+            <h2 className="mb-6 text-2xl font-semibold text-white text-center">
+              Confirmar Exclusão
+            </h2>
+
+            <p className="text-[#bcbcbc] text-center mb-6">
+              Tem certeza que deseja excluir este Professor?
+              Essa ação não poderá ser desfeita.
+            </p>
+
+            <div className="flex gap-4">
+              <button
+                onClick={() => setOpenExcluir(false)}
+                className="text-white bg-[#292727] rounded-md px-6 py-2 text-[1rem] hover:bg-[#3a3939] transition cursor-pointer"
+              >
+                Cancelar
+              </button>
+              <button
+                onClick={excluirProfessor}
+                className="text-white bg-gradient-to-r from-[#8B1E1E] to-[#E34242] rounded-md px-6 py-2 text-[1rem] font-bold hover:opacity-90 transition cursor-pointer"
+              >
+                Confirmar
+              </button>
+            </div>
+          </div>
+        </div>
+      </Modal>
     </tr>
   )
 }
