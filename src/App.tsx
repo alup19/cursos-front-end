@@ -29,18 +29,18 @@ export default function App() {
     }
   }, [])
 
-  const listacursos = cursos.map( curso => (
+  const listacursos = cursos.map(curso => (
     <CardCursos data={curso} key={curso.id} />
   ))
 
   return (
-    <div className="min-h-[93.3vh] bg-[#10100F]">
+    <div className="min-h-[93.3vh] flex flex-col bg-[#10100F]">
       <InputPesquisa setCursos={setCursos} />
-      <div className="max-w-7xl mx-auto">
+      <div className="flex min-w-[75vw] max-w-[80vw] flex-col mt-6 mx-auto">
         <h1 className="mb-4 text-4xl font-bold leading-none my-8 font-inter tracking-tight text-[#f1eef1] md:text-5xl lg:text-6xl" >
           Cursos em destaque
         </h1>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 gap-y-5">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-x-35 gap-y-5">
           {listacursos}
         </div>
       </div>

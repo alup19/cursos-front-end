@@ -34,27 +34,29 @@ export function InputPesquisa({ setCursos }: InputPesquisaProps) {
     }
 
     return (
-        <div className="flex mx-auto max-w-5xl pt-3">
-            <form className="flex-1" onSubmit={handleSubmit(enviaPesquisa)}>
-                <label htmlFor="default-search" className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
-                <div className="relative">
-                    <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-                        <svg className="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
-                        </svg>
+        <div className="flex justify-center items-center w-[98vw]">
+            <div className="flex min-w-[75vw] mt-6 justify-center">
+                <form className="flex-1" onSubmit={handleSubmit(enviaPesquisa)}>
+                    <label htmlFor="default-search" className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
+                    <div className="relative">
+                        <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                            <svg className="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+                            </svg>
+                        </div>
+                        <input type="search" id="default-search" className="block w-full p-4 ps-10 text-sm border font-inter rounded-lg bg-[#10100F] focus:ring-blue-500 focus:border-blue-500 dark:[#4f4d50] border-gray-600 placeholder-[#fff] text-[#fff]"
+                            placeholder="Informe nome do curso, tipo ou valor máximo" required
+                            {...register('termo')} />
+                        <button type="submit" className="text-white absolute end-2.5 bottom-2.5  bg-[#245A7C] cursor-pointer hover:bg-[#3d96ce] transition-colors focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2">
+                            Pesquisar
+                        </button>
                     </div>
-                    <input type="search" id="default-search" className="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:[#4f4d50] dark:border-gray-600 dark:placeholder-[#424040] dark:text-[#302d2d] dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        placeholder="Informe nome do curso, tipo ou valor máximo" required 
-                        {...register('termo')} />
-                    <button type="submit" className="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                        Pesquisar
-                    </button>
-                </div>
-            </form>
-            <button type="button" className="ms-3 mt-2 focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900"
+                </form>
+                <button type="button" className="ms-3 mt-1 flex items-center justify-center text-white bg-[#572566] rounded-[0.6875rem] w-[8.8125rem] h-[2.775rem] text-[0.9rem] font-inter font-bold leading-normal cursor-pointer hover:bg-[#a8459b] transition-colors"
                     onClick={mostraDestaques}>
-                Exibir Destaques
-            </button>
+                    Exibir Destaques
+                </button>
+            </div>
         </div>
     )
 }

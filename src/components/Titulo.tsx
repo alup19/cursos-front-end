@@ -19,7 +19,7 @@ export default function Titulo() {
 
     return (
         <nav className="bg-[#10100F] dark:bg-[#10100F] dark:border-[#fff] ">
-            <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+            <div className="w-[78vw] flex flex-wrap items-center justify-between mx-auto p-4">
                 <Link to={"/"}><img src="/orvion_logo.png" className="h-8" alt="Orvion Logo" /></Link>
                 <Link to="/" className="flex items-center space-x-3 rtl:space-x-reverse">
                 </Link>
@@ -55,8 +55,8 @@ export default function Titulo() {
                 </div>
             </div>
             <Modal open={openSair} onClose={() => setOpenSair(false)}>
-                    <div className="container mt-24">
-                      <div className="container mt-10 flex flex-col items-center max w-[20rem]">
+                    <div className="container">
+                      <div className="container flex flex-col items-center max w-[20rem]">
                         <h2 className="mb-6 text-2xl font-semibold text-white text-center">
                           Sair do Sistema
                         </h2>
