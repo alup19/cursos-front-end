@@ -1,17 +1,18 @@
 import { Link } from "react-router-dom"
 import type { CursoType } from "../utils/CursoType"
-import { FaRegStar } from "react-icons/fa6"
 
 export function CardCursos({ data }: { data: CursoType }) {
     return (
-        <div className="flex flex-col p-4 my-4 max-w-sm rounded-lg gap-3 shadow-sm items-centerbg-[#171717] border-[#4f4d50] border-1">
+        <div className="flex flex-col p-4 my-4 max-w-sm rounded-lg gap-3 bg-[#171717] border-[#4f4d50] border-1">
+            {data.destaque == true ?
+                <div className="absolute ml-[15.8rem] mt-[0.3rem] flex flex-row items-center gap-2 bg-[#8a8211] rounded-[1rem] px-3 py">
+                    <p className="font-inter text-white pt-[0.1rem] font-semibold text-[0.8rem]">Destaque</p>
+                </div>
+                :
+                <>
+                </>
+            }
             <div className="flex flex-col items-center">
-                {data.destaque == true ?
-                    <FaRegStar className="text-3xl text-yellow-600 w-[1.6rem] inline-block" />
-                    :
-                    <>
-                    </>
-                }
                 <img src={data.foto && data.foto.trim() !== "" ? data.foto : "/orvion_logo.png"} alt="Foto do Curso" className="w-[340px] h-[130px] object-contain rounded-[1rem]" />
             </div>
             <div className="flex flex-row items-center justify-between">
