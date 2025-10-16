@@ -64,7 +64,8 @@ export default function Detalhes() {
     <div className="bg-[#10100F] pt-8 min-h-[93.3vh]">
       <section className="flex mx-auto flex-col w-[50rem] items-start border-[#1C1B1D] border-[3px] p-5 rounded-lg shadow md:max-w-5xl">
         <img className="object-cover rounded-t-lg rounded-[1rem]"
-          src={curso?.foto} alt="Foto do Curso" />
+          {/* src={curso?.foto} alt="Foto do Curso" /> */}
+          src={curso?.foto && curso?.foto.trim() !== "" ? curso?.foto : "/orvion_logo.png"} alt="Foto do Curso" />
         <div className="flex flex-col justify-between py-4 leading-normal">
           <div className="flex flex-row justify-between w-[47rem]">
             <h5 className="mb-2 text-2xl font-semibold tracking-tight text-white dark:text-white">
