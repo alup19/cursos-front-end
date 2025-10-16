@@ -89,8 +89,6 @@ export default function Detalhes() {
             <div className="bg-[#1d1b1b] rounded-[0.5rem] py-2 break-words overflow-hidden">
               <p className="font-normal font-inter text-[#b4b4b4] ml-2">
                 {curso?.descricao}
-                {curso?.descricao}
-                {curso?.descricao}
               </p>
             </div>
           </div>
