@@ -38,7 +38,7 @@ export default function App() {
       <InputPesquisa setCursos={setCursos} />
       <div className="flex min-w-[75vw] max-w-[80vw] flex-col mt-6 mx-auto">
         <h1 className="mb-4 text-4xl font-bold leading-none my-8 font-inter tracking-tight text-[#f1eef1] md:text-5xl lg:text-6xl" >
-          Cursos em destaque
+          Cursos em Catálogo
         </h1>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-x-35 gap-y-5">
           {listacursos}
