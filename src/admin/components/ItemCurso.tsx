@@ -93,7 +93,7 @@ export default function ItemCurso({ curso, cursos, setCursos }: listaCursoProps)
       <td className="px-2 py-15 flex items-center">
         <TiDeleteOutline className="text-3xl text-red-600 w-[2rem] inline-block cursor-pointer" title="Excluir"
           onClick={() => setOpenExcluir(true)} />&nbsp;
-        <FaRegStar className="text-3xl text-yellow-600 w-[1.6rem] inline-block cursor-pointer" title="Destacar"
+        <FaRegStar className={`text-3xl w-[1.6rem] inline-block cursor-pointer ${curso.destaque ? "text-yellow-600" : "text-zinc-300"}`} title="Destacar"
           onClick={alterarDestaque} />
       </td>
       <Modal open={openExcluir} onClose={() => setOpenExcluir(false)}>
