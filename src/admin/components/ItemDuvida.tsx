@@ -101,7 +101,7 @@ export default function ItemDuvida({ duvida, duvidas, setDuvidas }: listaDuvidaP
   return (
     <tr key={duvida.id} className="odd:bg-[#252525] font-inter text-white even:bg-[#333333] border-b border-gray-700">
       <th scope="row" className="px-6 py-4 font-inter whitespace-nowrap text-white">
-        <img src={duvida.curso.foto && duvida.curso.foto.trim() !== "" ? duvida.curso.foto : orvionLogo} className="rounded-[0.5rem] object-contain" alt="Foto do Curso"
+        <img src={duvida.curso.foto && duvida.curso.foto.trim() !== "" ? duvida.curso.foto : orvionLogo} className="rounded-[0.5rem] object-fill" alt="Foto do Curso"
           style={{ width: 250, height: 100 }} />
       </th>
       <td className={"px-6 py-4"}>

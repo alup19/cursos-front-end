@@ -8,7 +8,7 @@ export default function Layout() {
     <>
       <Titulo />
       <Outlet />
-      <Toaster richColors position="top-center" />
+      <Toaster richColors position="top-right" />
     </>
   )
 }

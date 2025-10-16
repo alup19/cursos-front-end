@@ -72,7 +72,7 @@ export default function ItemCurso({ curso, cursos, setCursos }: listaCursoProps)
   return (
     <tr key={curso.id} className="odd:bg-[#252525] even:bg-[#333333] border-b border-gray-700">
       <th scope="row" className="px-6 py-4 font-inter whitespace-nowrap text-white">
-        <img src={curso.foto && curso.foto.trim() !== "" ? curso.foto : "/orvion_logo.png"} className="rounded-[0.5rem] object-contain" alt={`Foto do Curso`}
+        <img src={curso.foto && curso.foto.trim() !== "" ? curso.foto : "/orvion_logo.png"} className="rounded-[0.5rem] object-fill" alt={`Foto do Curso`}
           style={{ width: 250, height: 100 }} />
       </th>
       <td className={`px-6 py-4 ${curso.destaque ? "font-bold text-yellow-500" : "font-bold text-white"}`}>
