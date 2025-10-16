@@ -83,7 +83,9 @@ export default function AdminCursos() {
       tipoCursoId: Number(data.tipoCursoId),
       adminId: admin.id
     }
-
+    
+    console.log(novoCurso);
+    
     const response = await fetch(`${apiUrl}/cursos`,
       {
         method: "POST",
