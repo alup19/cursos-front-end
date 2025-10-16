@@ -48,9 +48,6 @@ export default function ItemTipoCurso({ tipoCurso, tiposCursos, setTiposCursos }
   return (
     <tr key={tipoCurso.id} className="odd:bg-[#252525] text-white font-inter even:bg-[#333333] border-b border-gray-700">
       <td className="px-6 py-4">
-        {tipoCurso.id}
-      </td>
-      <td className="px-6 py-4">
         {tipoCurso.nome}
       </td>
       <td className="px-6 py-4">

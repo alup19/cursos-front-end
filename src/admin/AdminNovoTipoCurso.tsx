@@ -79,9 +79,6 @@ export default function AdminNovoTipoCurso() {
                         <thead className="text-xs font-inter text-[#e5e5e5] uppercase bg-[#1a1a1a]">
                             <tr>
                                 <th scope="col" className="px-6 py-3">
-                                    ID
-                                </th>
-                                <th scope="col" className="px-6 py-3">
                                     Tipo de Curso
                                 </th>
                                 <th scope="col" className="px-6 py-3">
